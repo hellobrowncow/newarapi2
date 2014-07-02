@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  respond_to :json
 
   def index
-    @items = Items.all
+    render json: Item.all
   end
 
 end

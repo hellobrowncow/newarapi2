@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-
+  respond_to :json
 
   def index
-    @users = Users.all
+    render json: User.all
   end
+
 
 end
