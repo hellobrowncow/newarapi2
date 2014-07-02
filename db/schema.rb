@@ -54,12 +54,14 @@ ActiveRecord::Schema.define(version: 20140702042133) do
 
   create_table "tags", force: true do |t|
     t.string   "color"
-    t.string   "type"
+    t.string   "clothing_type"
     t.string   "event"
     t.boolean  "favorite"
     t.string   "function"
     t.string   "weather"
     t.integer  "rating"
+    t.string   "brand"
+    t.string   "other"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,8 +70,8 @@ ActiveRecord::Schema.define(version: 20140702042133) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
     t.string   "last_name"
+    t.string   "email"
   end
 
 end
