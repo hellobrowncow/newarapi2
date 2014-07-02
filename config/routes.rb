@@ -1,12 +1,19 @@
 Newarapi2::Application.routes.draw do
-  resources :tags
+  scope :api do 
+    resources :users, except: [ :show, :new, :edit], defaults: { format: :json} do
+    end
 
-  resources :collections
+    resources :items, except: [ :show, :new, :edit], defaults: { format: :json} do
+    end
 
-  resources :items
+    resources :tags, except: [ :show, :new, :edit], defaults: { format: :json} do
+    end
 
-  resources :users
+    resources :collections, except: [ :show, :new, :edit], defaults: { format: :json} do
+    end
 
+  root 'site#index'
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
