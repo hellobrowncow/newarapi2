@@ -1,0 +1,25 @@
+<html>
+  
+Test
+
+
+<%= form_tag '/upload', multipart: true do %>
+
+  <%= label_tag(:name, "Name:") %><br>
+  <%= text_field_tag(:name) %><br>
+  <%= label_tag(:email, "Email:") %><br>
+  <%= text_field_tag(:email) %><br>
+
+  <label for =":picture">File to Upload</label> 
+  <% file_field_tag(:picture) %><br>
+
+  <% label_tag(:remote_image_url, "or image URL") %><br>
+  <% text_field_tag(:remote_image_url) %>
+
+  <%= submit_tag("Sign up!!") %>
+<% end %>
+
+<% #image_tag picture.image_url.to_s %>
+
+
+</html>

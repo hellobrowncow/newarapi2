@@ -1,6 +1,6 @@
 Newarapi2::Application.routes.draw do
   
-    resources :users
+    resources :items
 
   scope :api do 
     resources :users, except: [ :show, :new, :edit], defaults: { format: :json} do
