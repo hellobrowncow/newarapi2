@@ -2,6 +2,6 @@ object false
 
 child @items do
 
-  attributes :id, :email
+  attributes :id
 
 end

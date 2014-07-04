@@ -2,6 +2,6 @@ object false
 
 child @collections do
 
-  attributes :id
+  attributes :id, :location
 
 end

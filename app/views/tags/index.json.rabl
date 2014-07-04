@@ -1,6 +1,6 @@
 object false
 
-child @users do
+child @tags do
 
   attributes :id, :email
 

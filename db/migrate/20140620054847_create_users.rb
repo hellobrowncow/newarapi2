@@ -1,11 +1,11 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    change_table :users do |t|  #users table generated automatically with t.string :name
-      
+    create_table :users, id: :uuid do |t|
+      t.string :name
       t.string :last_name
-      t.string :email 
+      t.string :email, index: true
 
-      #t.timestamps       #auto-generated, redundant
+      t.timestamps
     end
   end
 end

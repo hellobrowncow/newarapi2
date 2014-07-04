@@ -1,6 +1,6 @@
 class CreateCollections < ActiveRecord::Migration
   def change
-    create_table :collections do |t|
+    create_table :collections, id: :uuid do |t|
       t.string :location
 
       t.timestamps

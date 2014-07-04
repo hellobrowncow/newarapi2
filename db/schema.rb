@@ -15,44 +15,27 @@ ActiveRecord::Schema.define(version: 20140702042133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "articles", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
-
-  create_table "collections", force: true do |t|
+  create_table "collections", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "comments", force: true do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.integer  "user_id"
+  create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "user_id"
+    t.uuid     "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
-  create_table "items", force: true do |t|
-    t.string   "color"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "items_tags", id: false, force: true do |t|
+    t.uuid "item_id"
+    t.uuid "tag_id"
   end
 
-  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
-
-  create_table "tags", force: true do |t|
+  create_table "tags", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "color"
     t.string   "clothing_type"
     t.string   "event"
@@ -66,12 +49,12 @@ ActiveRecord::Schema.define(version: 20140702042133) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "last_name"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
