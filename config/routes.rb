@@ -1,6 +1,37 @@
 Newarapi2::Application.routes.draw do
   
+    scope :session do 
+      get    'login'  => 'session#new',     as: :login             # Login form
+      post   'login'  => 'session#create'                          # Log user in (start session)
+      delete 'logout' => 'session#destroy', as: :logout            # Log user out (end session)
+    end
+
+    resources :users
+
+
     resources :items
+
+
+    # scope :users do
+    #   get    ''     => 'users#index', as: "users"
+    #   get    ':id' => 'users#index', as: 'user'
+    #   #show   ''     => 'users#index'
+    #   post   '/new'     => 'users#create'
+    #   put    ''     => 'users#replace'
+    #   patch  ''     => 'users#update'
+    #   delete ''     => 'users#destroy'
+    #   #edit   ''     => 'users#update'
+    # end
+
+    # scope :items do
+    #   get    ''     => 'items#index', as: 'items'
+    #   get    ':ids' => 'items#index', as: 'item'
+    #   post   ':id'  => 'items#create'
+    #   put    ':id'  => 'items#replace'
+    #   patch  ':id'  => 'items#edit'
+    #   delete ':ids'  => 'items#destroy'
+
+    # end
 
   scope :api do 
     resources :users, except: [ :show, :new, :edit], defaults: { format: :json} do

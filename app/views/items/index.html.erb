@@ -23,14 +23,15 @@ Test
 
 
 
-  <%= image_tag "file" %>
+  <%= image_tag "file" %><br>
 
+  <%= ">>>>>>>>>>>>>>params[:ids] #{params[:ids]}"%><br>
 
-
+  <%= link_to 'Delete Item', @item, method: :destroy%>
 
 <% end %>
 
-
+<%= render 'form' %>
 
 
 </html>
