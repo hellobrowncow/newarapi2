@@ -1,37 +1,85 @@
-<html>
+
+
+<br><br><br><br><br>
+<%= @items.inspect %>
+
+<div class="col-sm-8 col-md-9 col-md-offset-3 main">
+
+
+<!--           <h2 class="page-header">My Clothing</h2> -->
+
+     <!-- Clothing Models Top-->
+
+      <div class="filter">
+          <a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
+        </div>
+<div class="col-sm-9 col-md-10 main">
+        <div class="slider filtering1">        <!-- First Carousel -->
+
+
+          <div><h3><%= @items.find(params[:id])%></h3></div>
+          <div><h3>1<img src="images/fixture-image1.svg"></h3></div>
+          <div><h3>2<img src="images/fixture-image2.svg"></h3></div>
+          <div><h3>3<img src="images/fixture-image6.svg"></h3></div>
+          <div><h3>4<img src="images/fixture-image5.svg"></h3></div>
+          <div><h3>5<img src="images/fixture-image4.svg"></h3></div>
+          <div><h3>6<img src="images/fixture-image3.svg"></h3></div>
+          <div><h3>7</h3></div>
+
+        </div>
+      
+
+
+
+        <div class="slider filtering2">        <!-- Second Carousel -->
+          <div><h3><img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>2</h3></div>
+          <div><h3>3</h3></div>
+          <div><h3>4</h3></div>
+          <div><h3>5</h3></div>
+          <div><h3>6</h3></div>
+          <div><h3>7</h3></div>
+        </div>
+      
+        <div class="filter">
+          <a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
+        </div>
+      </div>
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   
-Test
+
+  <script type="text/javascript">
+   
+$(document).ready(function(){
+    $('.filtering1').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true
+    });
+
+    $('.filtering2').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true
+    });
+
+    var filtered = false;
+
+    $('.js-filter').on('click', function(){
+      if(filtered === false) {
+        $('.filtering').slickFilter(':even');
+        $(this).text('Unfilter Slides');
+        filtered = true;
+      } else {
+        $('.filtering').slickUnfilter();
+        $(this).text('Filter Slides');
+        filtered = false;
+      }
+    });
+
+        });
+</script>
 
 
-<%= form_tag @item, multipart: true do %>
-
-  <%= label_tag(:name, "Name:") %><br>
-  <%= text_field_tag(:name) %><br>
-  <%= label_tag(:email, "Email:") %><br>
-  <%= text_field_tag(:email) %><br>
-
-<p>
-  <label for = :picture>File to Upload</label><br> 
-  <%= file_field_tag :picture %><br>
-</p>
-<p>
-  <%= label_tag(:remote_image_url, "or image URL") %><br>
-  <%= text_field_tag(:remote_image_url) %>
-</p>
-
-  <%= submit_tag("Sign up!!") %><br>
-
-
-
-  <%= image_tag "file" %><br>
-
-  <%= ">>>>>>>>>>>>>>params[:ids] #{params[:ids]}"%><br>
-
-  <%= link_to 'Delete Item', @item, method: :destroy%>
-
-<% end %>
-
-<%= render 'form' %>
-
-
-</html>

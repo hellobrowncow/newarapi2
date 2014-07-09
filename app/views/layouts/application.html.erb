@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PMC - Stash your Threads Online</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+    <div class="navbar  navbar-fixed-top navbar-inverse" role="navigation">  
+    <!-- Top Menu Bar: "fixed" stays on top, "static" moves with content -->
+    <!-- "navbar-inverse" inverts navbar bgcolor from normal bgcolor --> 
+      <div class="container-fluid">  <!-- Bootstrap 2-column nav & body, not fixed width-->
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="navbar-header">     <!-- Controls Navigation Bar including Collapse-->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span> <!-- Provide the three white lines on the the collapsible button -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="main.html">P M C</a> <!-- Left Corner App Title -->
+        </div>
+
+<!-- <div class="navbar col-md-1">
+
+</div> -->
+
+        <div class="nav navbar-collapse collapse">    
+        <!-- Collects and Controls Right Navigation for Collapsible Hamburger -->
+
+<!-- BEGIN EXPERIMENTAL NAVIGATION from Bootstrap-->
+<!-- <div class="row"> -->
+  <div class="nav col-sm-4 pull-right">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search A Wardrobe <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="help.html">Travel Bag</a></li>
+          <li class="divider"></li>
+          <li><a href="main.html">Hong Kong</a></li>
+          <li><a href="help.html">New York</a></li>
+          <li><a href="help.html">London</a></li>
+          <li class="divider"></li>
+          <li><a href="storage.html">Storage</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+      <div class="ui-widget">
+        <input id="tags" size="50" type="text" class="form-control" placeholder="Find my threads">
+      </div>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+<!--   </div> -->
+
+
+
+<!--           <form class="navbar-form navbar-right">  Deleted navbar-right
+  <input class="form-control" placeholder="Search My Clothing..." aligntype="search" >
+</form> -->
+
+
+          <ul class="nav  nav-pills "> <!-- navbar-nav navbar-right-->
+              <li class="dropdown">    
+
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    My Wardrobes <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">
+                          <span class="badge pull-right">0</span>
+                          Travel Bag</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li><a href="main.html">
+                          <span class="badge pull-right">25</span>
+                          Hong Kong</a></li>
+                      <li><a href="help.html">
+                          <span class="badge pull-right">100</span>
+                          New York</a></li>
+                      <li><a href="help.html">
+                          <span class="badge pull-right">55</span>
+                          London</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li><a href="storage.html">
+                          <span class="badge pull-right">34</span>
+                          Storage</a></li>
+                  </ul>
+
+              <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Help <span class="caret"></span>
+                          </a>
+                  <ul class="dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">FAQs</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Site Map</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Report a Problem</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Support</a></li>
+                  </ul>
+              <!--             <li><a href="help.html">Help</a></li> -->
+          </ul>
+
+        </div>
+   
+      </div>
+    </div>
+    <%= yield %>
+    
+  <script type="text/javascipt" source = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

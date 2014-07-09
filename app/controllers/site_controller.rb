@@ -1,8 +1,8 @@
 class SiteController < ApplicationController
-  # respond_to :json
+  before_action :is_authenticated?
+
 
   def index
-
   end
 
 end

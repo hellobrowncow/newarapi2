@@ -3,9 +3,12 @@ class ItemsController < ApplicationController
 
   def index
 
+    @items = Item.all
+    # @item = Item.find(params[:id])
+
     respond_to do |format|
       format.html { } # index.html.erb
-      format.json { render json: Item.all }
+      format.json { render json: @items }
     # @items = if params[:ids]
     #   puts ">>>>>>>>>>>>> params[:ids] #{params[:ids]}" #raw string
     #   puts ">>>>>>>>>>>>> split, #{params[:ids].split(",")}" #split string

@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :last_name
       t.string :email, index: true
+      t.string :salt
+      t.string :fish
 
       t.timestamps
     end

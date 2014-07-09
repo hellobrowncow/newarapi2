@@ -1,0 +1,11 @@
+/*
+ *= require slick
+ *= require_self
+ */
+.slider h3 {
+  text-align: center;
+}
+
+.slider img {
+  margin: auto;
+}

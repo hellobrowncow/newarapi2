@@ -1,13 +1,15 @@
 Newarapi2::Application.routes.draw do
   
-    scope :session do 
-      get    'login'  => 'session#new',     as: :login             # Login form
-      post   'login'  => 'session#create'                          # Log user in (start session)
+      root 'site#index'
+      
+      get    'login'  => 'session#new',   as: :login                   # Login form
+      post   'login'  => 'session#create'                      # Log user in (start session)
       delete 'logout' => 'session#destroy', as: :logout            # Log user out (end session)
-    end
+
+    
+      # get 'register' =>  'register#new' 
 
     resources :users
-
 
     resources :items
 
@@ -46,7 +48,7 @@ Newarapi2::Application.routes.draw do
     resources :collections, except: [ :show, :new, :edit], defaults: { format: :json} do
     end
 
-  root 'site#index'
+
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

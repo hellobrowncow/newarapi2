@@ -8,27 +8,37 @@ User.create([
     id: SecureRandom.uuid,
     name: "Steve",
     last_name: "not Steve",
-    email: "d@d.com"
+    email: "d@d.com",
+    password: "1234",
+    password_confirmation: "1234"
   },
 
   {
 
     id:SecureRandom.uuid,
     name: "dude",
+    last_name: "notadude",
     email: "dude@dude.com",
-    last_name: "notadude"
+    password: "4567",
+    password_confirmation: "4567"
   }
 ])
 
 Item.create([
   {
-    id: SecureRandom.uuid
+    id: SecureRandom.uuid,
+    color: "blue",
+    clothing_type: "shirt",
+    picture: ""
 
   },
 
   {
 
-    id:SecureRandom.uuid
+    id:SecureRandom.uuid,
+    color: "red",
+    clothing_type: "pants",
+    picture: ""
 
   }
 ])
@@ -50,31 +60,16 @@ Collection.create([
 Tag.create([
   {
     id: SecureRandom.uuid,
-    color: "yellow",
-    clothing_type: "shirt",
-    event: "Xmas",
     favorite: true,
-    function: "Casual",
-    weather: "Winter",
     rating: "5",
-    brand: "Gucii",
     other: "Worn at the 1969 Winter Xmas Extravaganza"
-
   },
 
   {
-
     id:SecureRandom.uuid, 
-    color: "blue",
-    clothing_type: "pants",
-    event: "",
     favorite: false,
-    function: "Formal",
-    weather: "Spring",
     rating: "2",
-    brand: "Leevi's",
     other: "Worn during my time in the gulag"
-
   }
 ])
 
