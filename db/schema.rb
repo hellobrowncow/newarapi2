@@ -17,11 +17,32 @@ ActiveRecord::Schema.define(version: 20140704053708) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
   create_table "collections", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "color"

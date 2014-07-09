@@ -1,14 +1,17 @@
-<%= form_for Item.new do |f| %>
+<%= form_for @item do |f| %>
 
 Form Partial
   <div class="field">
 
   </div>
-  <div class="field">
+  <p><div class="field">
     <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, name: "picture_attach"%>
   </div>
-  <div class="actions">
+</p>
+</p>
+  <p><div class="actions">
     <%= f.submit %>
   </div>
+  </p>
 <% end %>

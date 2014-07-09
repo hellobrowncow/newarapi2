@@ -10,9 +10,10 @@ class PictureUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  # uploader = PictureUploader.new
-  # uploader.store!(my_file)
-  # uploader.retrieve_from_store!('my_file.png')
+  # @uploader = PictureUploader.new
+  # @picture = remote_picture_url
+  # @uploader.store! :picture
+  # uploader.retrieve_from_store! :picture
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

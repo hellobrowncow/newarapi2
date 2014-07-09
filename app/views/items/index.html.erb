@@ -3,6 +3,13 @@
 <br><br><br><br><br>
 <%= @items.inspect %>
 
+<br><br>
+
+<% for @item in @items%>
+<%= @item %>
+<% end %>
+
+
 <div class="col-sm-8 col-md-9 col-md-offset-3 main">
 
 
@@ -16,15 +23,25 @@
 <div class="col-sm-9 col-md-10 main">
         <div class="slider filtering1">        <!-- First Carousel -->
 
+          <% c=0%>
+          <% for @item in @items%>
+          <div><h5><%=c +=1%><br>
+          <%= @item.id %>
+          <%= @item.color %>
+          <%= @item.clothing_type %>
+          <%= @item.picture %>
+          <img src="images/fixture-image6.svg">
 
-          <div><h3><%= @items.find(params[:id])%></h3></div>
-          <div><h3>1<img src="images/fixture-image1.svg"></h3></div>
-          <div><h3>2<img src="images/fixture-image2.svg"></h3></div>
+          </h5></div>
+          <% end %>
+<!-- <img src="images/fixture-image1.svg"> -->
+          <div><h3>1<img src="images/fixture-image6.svg"></h3></div>
+          <div><h3>2<img src="images/fixture-image6.svg"></h3></div>
           <div><h3>3<img src="images/fixture-image6.svg"></h3></div>
-          <div><h3>4<img src="images/fixture-image5.svg"></h3></div>
-          <div><h3>5<img src="images/fixture-image4.svg"></h3></div>
-          <div><h3>6<img src="images/fixture-image3.svg"></h3></div>
-          <div><h3>7</h3></div>
+          <div><h3>4<img src="images/fixture-image6.svg"></h3></div>
+          <div><h3>5<img src="images/fixture-image6.svg"></h3></div>
+          <div><h3>6<img src="images/fixture-image6.svg"></h3></div>
+
 
         </div>
       
@@ -32,13 +49,13 @@
 
 
         <div class="slider filtering2">        <!-- Second Carousel -->
-          <div><h3><img src="images/fixture-image7.jpg"></h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
-          <div><h3>5</h3></div>
-          <div><h3>6</h3></div>
-          <div><h3>7</h3></div>
+          <div><h3>1<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>2<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>3<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>4<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>5<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>6<img src="images/fixture-image7.jpg"></h3></div>
+          <div><h3>7<img src="images/fixture-image7.jpg"></h3></div>
         </div>
       
         <div class="filter">
@@ -46,6 +63,8 @@
         </div>
       </div>
 </div>
+
+<%= render "form" %>
 
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   

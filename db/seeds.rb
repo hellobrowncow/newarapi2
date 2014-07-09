@@ -28,17 +28,17 @@ Item.create([
   {
     id: SecureRandom.uuid,
     color: "blue",
-    clothing_type: "shirt",
-    picture: ""
+    clothing_type: "jeans",
+    picture: open("http://commons.wikimedia.org/wiki/File:T-Shirt_mind_the_gap.jpg")
 
   },
 
   {
 
     id:SecureRandom.uuid,
-    color: "red",
-    clothing_type: "pants",
-    picture: ""
+    color: "blue",
+    clothing_type: "jacket",
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG")
 
   }
 ])
