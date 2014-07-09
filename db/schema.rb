@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20140704053708) do
   end
 
   create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "color"
+    t.string   "clothing_type"
     t.uuid     "user_id"
     t.uuid     "collection_id"
     t.datetime "created_at"
@@ -37,14 +39,8 @@ ActiveRecord::Schema.define(version: 20140704053708) do
   end
 
   create_table "tags", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "color"
-    t.string   "clothing_type"
-    t.string   "event"
     t.boolean  "favorite"
-    t.string   "function"
-    t.string   "weather"
     t.integer  "rating"
-    t.string   "brand"
     t.string   "other"
     t.datetime "created_at"
     t.datetime "updated_at"
