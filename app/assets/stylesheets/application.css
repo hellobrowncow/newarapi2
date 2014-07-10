@@ -4,8 +4,10 @@
  */
 .slider h3 {
   text-align: center;
+
 }
 
 .slider img {
-  margin: auto;
+  margin: 0;
+/*  vertical-align: top;*/
 }

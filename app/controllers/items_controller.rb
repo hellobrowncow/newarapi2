@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
 
   def index
 
+    @name = Item.find_by(params[:id])
+
     @items = Item.all
     @item = Item.find_by(params[:id])
 

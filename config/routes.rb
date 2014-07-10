@@ -13,6 +13,8 @@ Newarapi2::Application.routes.draw do
 
     resources :items
 
+    resources :collections
+
 
     # scope :users do
     #   get    ''     => 'users#index', as: "users"

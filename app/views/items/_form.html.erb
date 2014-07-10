@@ -1,17 +1,24 @@
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => {:multipart => true} do |f| %>
 
-Form Partial
-  <div class="field">
+<u>Partial Form</u><br> 
 
-  </div>
+  < % = f.hidden_field :gallery_id % >
   <p><div class="field">
+f.label
+    <%= f.label :clothing_type %><br>
+    <%= f.text_field :clothing_type %><br><br>  
+
+    <%= f.label :color %><br>
+    <%= f.text_field :color %><br><br>    
+
     <%= f.label :picture %><br>
-    <%= f.file_field :picture, name: "picture_attach"%>
-  </div>
-</p>
-</p>
-  <p><div class="actions">
+    <%= f.file_field :picture, name: "picture_attach"%><br><br>
+  </div></p>
+f.submit
+  <div class="actions">
     <%= f.submit %>
   </div>
-  </p>
+
 <% end %>
+
+END PARTIAL

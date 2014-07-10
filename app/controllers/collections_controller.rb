@@ -2,11 +2,18 @@ class CollectionsController < ApplicationController
   # before_action :set_collection, only: [:show, :edit, :update, :destroy]
 
   # GET /collections
-  respond_to :json
 
   def index
-    render json: Collection.all
+
+  @collections = Collection.all
+  @collection = Collection.find_by(params[:id])
+
+    respond_to do |format|
+      format.html { } # index.html.erb
+      format.json { render json: @collections }
+    end
   end
+
 
   # GET /collections/1
 #   def show

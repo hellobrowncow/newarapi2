@@ -24,12 +24,12 @@ User.create([
   }
 ])
 
-Item.create([
+items = Item.create([
   {
     id: SecureRandom.uuid,
     color: "blue",
     clothing_type: "jeans",
-    picture: open("http://commons.wikimedia.org/wiki/File:T-Shirt_mind_the_gap.jpg")
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/T-Shirt_mind_the_gap.jpg/906px-T-Shirt_mind_the_gap.jpg")
 
   },
 
@@ -38,7 +38,7 @@ Item.create([
     id:SecureRandom.uuid,
     color: "blue",
     clothing_type: "jacket",
-    picture: open("http://upload.wikimedia.org/wikipedia/commons/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG")
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG/576px-Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG")
 
   }
 ])
@@ -62,14 +62,16 @@ Tag.create([
     id: SecureRandom.uuid,
     favorite: true,
     rating: "5",
-    other: "Worn at the 1969 Winter Xmas Extravaganza"
+    other: "Worn at the 1969 Winter Xmas Extravaganza",
+    items: items
   },
 
   {
     id:SecureRandom.uuid, 
     favorite: false,
     rating: "2",
-    other: "Worn during my time in the gulag"
+    other: "Worn during my time in the gulag",
+    items: items
   }
 ])
 
