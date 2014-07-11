@@ -1,13 +1,14 @@
 Newarapi2::Application.routes.draw do
   
-      root 'site#index'
-      
-      get    'login'  => 'session#new',   as: :login                   # Login form
-      post   'login'  => 'session#create'                      # Log user in (start session)
-      delete 'logout' => 'session#destroy', as: :logout            # Log user out (end session)
+  root 'site#index'
 
-    
-      # get 'register' =>  'register#new' 
+    get    'login'  => 'session#new',   as: :login                   # Login form
+    post   'login'  => 'session#create'                      # Log user in (start session)
+    get    'logout' => 'session#destroy'
+    delete 'logout' => 'session#destroy' # , as: :logout            # Log user out (end session)
+
+
+
 
     resources :users
 
