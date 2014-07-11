@@ -1,27 +1,14 @@
 
 
 <br><br><br><br>
-<% @items.inspect %>
-
-
-
-<% for @item in @items%>
-<% @item %>
-<% end %>
-
 
 
 <div class="col-sm-8 col-md-9 col-md-offset-3 main">
 
-
-<!--           <h2 class="page-header">My Clothing</h2> -->
-
-     <!-- Clothing Models Top-->
-
       <div class="filter">
           <a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
         </div>
-<div class="col-sm-9 col-md-10 main">
+      <div class="col-sm-9 col-md-10 main">
 
 
         <div class="slider filtering1">        <!-- First Carousel -->
@@ -29,32 +16,21 @@
           <% c=0%>
           <% for @item in @items%>
           <div><h5><%=c +=1%><br>
+          <center>
           <%= @item.color %>
           <%= @item.clothing_type %>
-          <%= image_tag @item.picture %>
-
-          <!-- <img src="images/fixture-image6.svg">. -->
-
+          <%= image_tag @item.picture.carousel %>
+          </center>
           </h5></div>
           <% end %>
-<!-- <img src="images/fixture-image1.svg"> -->
-          <div><h6><br><br>1<img src="images/fixture-image6.svg"></h6></div>
-          <div><h3>2<img src="images/fixture-image6.svg"></h3></div>
-          <div><h3>3<img src="images/fixture-image6.svg"></h3></div>
-          <div><h3>4<img src="images/fixture-image6.svg"></h3></div>
-          <div><h3>5<img src="images/fixture-image6.svg"></h3></div>
-          <div><h3>6<img src="images/fixture-image6.svg"></h3></div>
 
+          <div><h6><br><br>1<img style="vertical-align: bottom;" src="images/fixture-image6.svg"></h6></div>
         </div>
     
         <div class="slider filtering2">        <!-- Second Carousel -->
-          <div><h6><img style="vertical-align: top; "src="images/fixture-image7_2.jpg" >1</h6></div>
+          <div><h6><center><img style="vertical-align: top;" "src="images/fixture-image7_2.jpg" >1</center></h6></div>
           <div><h3><img src="images/fixture-image7_2.jpg" >2</h3></div>
-          <div><h3><img src="images/fixture-image7_2.jpg" >3</h3></div>
-          <div><h3><img src="images/fixture-image7_2.jpg" >4</h3></div>
-          <div><h3><img src="images/fixture-image7_2.jpg" >5</h3></div>
-          <div><h3><img src="images/fixture-image7_2.jpg" >6</h3></div>
-        </div>  <!-- width=98% height=98% -->
+        </div>  
       
         <div class="filter">
           <a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
@@ -71,12 +47,12 @@
     <div id="items">  
       <% @items.each do |item| %>  
         <div class="item">  
-          <%= image_tag @item.picture.to_s %><br>
+          <%= image_tag item.picture.to_s %><br>
           image_tag @item.picture.to_s<br>
           THUMBNAIL: <br>
-          <%= image_tag @item.picture.thumb.to_s %> <br>
+          <%= image_tag item.picture.carousel.to_s %> <br>
           SMALL THUMBNAIL: <br>
-          <%= image_tag @item.picture.small_thumb.to_s %> <br>
+          <%= image_tag item.picture.thumbnail.to_s %> <br>
           Image UUID:  
           <div class="id"><%= item.id %></div> 
           Item color:           
@@ -85,6 +61,7 @@
           <div class="clothing_type"><%= item.clothing_type %></div><br>   
 
           <div class="actions">  
+            <%= link_to "new", newitem_path %> |             
             <%= link_to "edit", edit_item_path(item) %> |  
             <%= link_to "remove", item, :confirm => 'Are you sure?', :method => :delete %>  
           </div>  
@@ -92,13 +69,8 @@
         <br><br>
       <% end %> 
 
-
-
-
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  
-
-  <script type="text/javascript">
+<script type="text/javascript">
    
 $(document).ready(function(){
     $('.filtering1').slick({

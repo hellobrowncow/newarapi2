@@ -1,24 +1,31 @@
-<%= form_for @item, :html => {:multipart => true} do |f| %>
-
-<u>Partial Form</u><br> 
-
-  < % = f.hidden_field :gallery_id % >
-  <p><div class="field">
-f.label
-    <%= f.label :clothing_type %><br>
-    <%= f.text_field :clothing_type %><br><br>  
-
-    <%= f.label :color %><br>
-    <%= f.text_field :color %><br><br>    
-
-    <%= f.label :picture %><br>
-    <%= f.file_field :picture, name: "picture_attach"%><br><br>
-  </div></p>
-f.submit
-  <div class="actions">
-    <%= f.submit %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @item, :html => {:multipart => true} do |f| %>
+      <fieldset>
+        <legend>Collections</legend>
+        <div class="form-group">
+          <%= f.label :collection %>
+          <%= f.select(:collection_id,
+            options_from_collection_for_select(
+              @collections, 'id', 'location'
+            ), {}, class: "form-control") %>
+        </div>
+        <div class="form-group">
+          <%= f.label :clothing_type %>
+          <%= f.text_field :clothing_type, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :color %>
+          <%= f.text_field :color, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :picture %>
+          <%= f.file_field :picture, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit class: "btn btn-warning" %>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
-
-<% end %>
-
-END PARTIAL
+</div>

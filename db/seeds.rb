@@ -3,7 +3,7 @@ Item.destroy_all
 Collection.destroy_all
 Tag.destroy_all
 
-User.create([
+users = User.create([
   {
     id: SecureRandom.uuid,
     name: "Steve",
@@ -12,7 +12,6 @@ User.create([
     password: "1234",
     password_confirmation: "1234"
   },
-
   {
 
     id:SecureRandom.uuid,
@@ -24,36 +23,35 @@ User.create([
   }
 ])
 
+collections = Collection.create([
+  {
+    id: SecureRandom.uuid,
+    location: "London",
+    user: users[0] 
+  },
+  {
+
+    id:SecureRandom.uuid,
+    location: "Hong Kong",
+    user: users[0] 
+  }
+])
+
 items = Item.create([
   {
     id: SecureRandom.uuid,
     color: "blue",
     clothing_type: "jeans",
-    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/T-Shirt_mind_the_gap.jpg/906px-T-Shirt_mind_the_gap.jpg")
-
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/T-Shirt_mind_the_gap.jpg/906px-T-Shirt_mind_the_gap.jpg"),
+    collection: collections[0]
   },
-
   {
 
     id:SecureRandom.uuid,
     color: "blue",
     clothing_type: "jacket",
-    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG/576px-Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG")
-
-  }
-])
-
-Collection.create([
-  {
-    id: SecureRandom.uuid,
-    location: "London"
-
-  },
-
-  {
-
-    id:SecureRandom.uuid,
-    location: "Hong Kong"
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG/576px-Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG"),
+    collection: collections[1]
   }
 ])
 

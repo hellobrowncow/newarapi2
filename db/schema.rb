@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140704053708) do
 
   create_table "collections", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "location"
+    t.uuid     "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140704053708) do
   create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "color"
     t.string   "clothing_type"
-    t.uuid     "user_id"
     t.uuid     "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"

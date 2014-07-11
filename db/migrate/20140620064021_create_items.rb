@@ -3,7 +3,6 @@ class CreateItems < ActiveRecord::Migration
     create_table :items, id: :uuid do |t|
       t.string :color
       t.string :clothing_type
-      t.uuid :user_id, index: true
       t.uuid :collection_id, index: true
 
       t.timestamps

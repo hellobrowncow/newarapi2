@@ -7,7 +7,7 @@
 
 }
 
-.slider img {
+.slider.filtering1 img {
   margin: 0;
-/*  vertical-align: top;*/
+  vertical-align: bottom;
 }

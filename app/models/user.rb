@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-
-
-  has_many :items, dependent: :destroy
+  has_many :collections, dependent: :destroy
+  has_many :items, through: :collections
 
   before_save :encrypt_password
   before_save :downcase_email

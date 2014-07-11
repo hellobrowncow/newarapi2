@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
+  before_action :is_authenticated?
   # respond_to :json
 
   def index
 
-    @name = Item.find_by(params[:id])
+    #@name = Item.find_by(params[:id])
 
     @items = Item.all
     @item = Item.find_by(params[:id])
+    @collections = current_user.collections
 
     respond_to do |format|
       format.html { } # index.html.erb
@@ -21,21 +23,24 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+      redirect_to '/items'
+  end
 
 
-  # def new
-  #   @item = Item.new
-  # end
+  def new
+    @item = Item.new
+    @collections = current_user.collections
+
+  end
 
 
-  # POST /cars
-  # POST /cars.json
   def create
-    @item = Item.new(params[:id])
+    @item = Item.new( item_params )
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to '/items', notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }
@@ -44,12 +49,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def replace
-    @item = Item.find(params[:id])
+  def edit
+    @item = Item.find_by(params[:id])
   end
 
-  def edit
-    @item = Item.find(params[:id])
+  def update
   end
 
   def destroy
@@ -58,11 +62,17 @@ class ItemsController < ApplicationController
     #   format.html { redirect_to items_url }
     #   format.json { render json: Item.all }
 
-    @item = Item.destroy
-    item.destroy
+    #@item = Item.destroy
+    @item = Item.find(params[:id])
+    @item.destroy
     #end
   end
 
+  private
+
+  def item_params
+    params.require(:item).permit(:collection_id, :color, :clothing_type, :picture)
+  end
 
 end
 
