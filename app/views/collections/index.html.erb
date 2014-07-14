@@ -1,17 +1,18 @@
 
-          <br><br><br><br><br><br><br><br>
+          <br><br><br>
 
-Locations: 
+<h2><u>Locations:</u></h2>
 
 <% g=0%>
 <% for @collection in @collections%>
-<div><h5>Collection: <%=g +=1%><br>
-  <%= @user.name%> @<%= @collection.location%><br><br>
-  Collection ID: <br>
-  <%=@collection.id %> <br><br>
+<div><h3>Collection: <%=g +=1%></h3><br>
+  <strong><u><%= @user.name%> @<%= @collection.location%></u> (ID: <%=@collection.id %>)</strong><br><br>
+  <!-- Collection ID: <br> -->
+   
   This is a list of items in each collection: <br>
   <% for @item in @items%>
-    <% if @collection.id == @item.collection_id%>
+    <%if @collection.id == @item.collection_id%>
+    <%=image_tag @item.picture.thumbnail%> 
     <%=@item.id%> <br>
     <%end%>
   <%end%>
