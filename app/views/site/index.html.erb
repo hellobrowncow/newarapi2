@@ -1,11 +1,22 @@
 
 <br><br><br><br><br><br>
 <div> 
-  <%=@current_user.name%>,<%=@current_user.last_name%><p>
-  
-  <%= link_to "Login", login_path %>  <br>
-  <%= link_to "Logout", logout_path %><br>
+  <div class='greeting'>Hello, <%=@current_user.name%>
+  </div>
+  <div class='date'>
+    Today is: <br>
+    <%=raw Time.now.strftime("<u>%A, %B %d</u> <strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %><br>
+  </div>
 
-  <%= link_to "Items", items_path %><br>
 
+  <!-- User already logged in  -->
+  <!-- <%= link_to "Login", login_path %>  <br> --> 
+  <div class='link'>
+    <%= link_to "Items", items_path %>
+  </div>
+  <div class='link'>
+    <%= link_to "Collections", collections_path %>
+  </div>
+  <div class='link'>  <%= link_to "Logout", logout_path %>
+  </div>
 </div>

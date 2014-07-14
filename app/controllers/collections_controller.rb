@@ -7,7 +7,10 @@ class CollectionsController < ApplicationController
 
   @collections = Collection.all
   @collection = Collection.find_by(params[:id])
-
+  @user = User.find_by(params[:id])
+  @item = Item.find_by(params[:id])
+  @items = Item.all
+  
     respond_to do |format|
       format.html { } # index.html.erb
       format.json { render json: @collections }
