@@ -22,25 +22,26 @@ class CollectionsController < ApplicationController
 #   def show
 #   end
 
-#   # GET /collections/new
-#   def new
-#     @collection = Collection.new
-#   end
+  # GET /collections/new
+  def new
+    @collection = Collection.new
+    @collections = Collection.all
+  end
 
 #   # GET /collections/1/edit
 #   def edit
 #   end
 
 #   # POST /collections
-#   def create
-#     @collection = Collection.new(collection_params)
+  def create
+    collection = Collection.new
 
-#     if @collection.save
-#       redirect_to @collection, notice: 'Collection was successfully created.'
-#     else
-#       render action: 'new'
-#     end
-#   end
+    if collection.save
+      redirect_to '/collections', notice: 'Collection was successfully created.'
+    else
+      render action: 'new'
+    end
+  end
 
 #   # PATCH/PUT /collections/1
 #   def update

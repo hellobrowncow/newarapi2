@@ -9,7 +9,8 @@
           <!-- <a href="javascript:void(0)" class="button js-filter">Filter Slides</a> -->
         </div>
       <div class="col-sm-9 col-md-10 main">
-
+    <%= link_to "Site", root_url %> |  
+    <%= link_to "Collections", collections_path%>
 
         <div class="slider filtering1">        <!-- First Carousel -->
 
@@ -22,17 +23,17 @@
           <%= link_to(image_tag(item.picture.carousel), item_path(item))%>
           </center>
           </h5></div>
-          <% end %>
+          <%end%>
 
-          <div><br><br><img style="vertical-align: bottom;" src="images/fixture-image6.svg"></h6></div>
+          <div><img style="vertical-align: bottom;" src="/images/fixture-image6.svg"></h6></div>
           <div><br><br><br><br><center><%= link_to "new", newitem_path %></center> </div>
         </div>
     
         <div class="slider filtering2">        <!-- Second Carousel -->
-          <div><h><center><img style="vertical-align: top;" src="images/fixture-image7_2.jpg" ></center>1</h6></div>
-          <div><h><img src="images/fixture-image7_2.jpg" >2</h6></div>
-          <div><h><img src="images/fixture-image7_2.jpg" >3</h6></div>
-          <div><h><img src="images/fixture-image7_2.jpg" >4</h6></div>
+          <div><h><center><img style="vertical-align: top;" src="/images/fixture-image7_2.jpg" ></center>1</h6></div>
+          <div><h><img src="/images/fixture-image7_2.jpg" >2</h6></div>
+          <div><h><img src="/images/fixture-image7_2.jpg" >3</h6></div>
+          <div><h><img src="/images/fixture-image7_2.jpg" >4</h6></div>
         </div>  
       
         <div class="filter">
@@ -41,38 +42,10 @@
       </div>
 </div>
 
-
-
-<%= render "form" %>
 <br>
 <br>
 
-    <div id="items">  
-      <% @items.each do |item| %>  
-        <div class="item">  
-          <%= image_tag item.picture.to_s %><br>
-          image_tag @item.picture.to_s<br>
-          THUMBNAIL: <br>
-          <%= image_tag item.picture.carousel.to_s %> <br>
-          SMALL THUMBNAIL: <br>
-          <%= image_tag item.picture.thumbnail.to_s %> <br>
-          Image UUID:  
-          <div class="id"><%= item.id %></div> 
-          Item color:           
-          <div class="color"><%= item.color %></div><br>   
-          Clothing Type:
-          <div class="clothing_type"><%= item.clothing_type %></div><br>   
 
-          <div class="actions">  
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-    <%= token_tag nil %>
-            <%= link_to "new", newitem_path %> |             
-            <%= link_to "edit", item_path(item) %> |  
-            <%= link_to "remove", item_path(item), data: {:confirm => 'Are you sure?'}, :method => :delete %>  
-          </div>  
-        </div>  
-        <br><br>
-      <% end %> 
 
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript">

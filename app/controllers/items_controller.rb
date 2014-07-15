@@ -56,28 +56,18 @@ class ItemsController < ApplicationController
   end
 
   def update
-      @item = Item.find_by(id: params[:id])
-      if @item.update_attributes(item_params)
-        redirect_to item_path(@item)
-      else 
-        render action: 'edit', status: :unprocessable_entity, location: @item
-      end
-
-
+    @item = Item.find_by(id: params[:id])
+    if @item.update_attributes(item_params)
+      redirect_to item_path(@item)
+    else 
+      render action: 'edit', status: :unprocessable_entity, location: @item
+    end
   end
 
   def destroy
-    # @item.destroy
-    # respond_to do |format|
     @item = Item.find_by(id: params[:id])
     @item.destroy
     redirect_to items_path
-
-    
-    # respond_to do |format|
-    #   format.html { redirect_to items_url }
-    #   format.json { render json: Item.all }
-    # end
   end
 
   private

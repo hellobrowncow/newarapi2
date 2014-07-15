@@ -17,6 +17,7 @@ Newarapi2::Application.routes.draw do
       post    '/items/new'   => 'items#create', as: :newitem
       # match   '/items/new'   => 'items#show', via: [:get, :post]
     resources :collections
+      post    '/collections/new'   => 'collections#create', as: :newcollection  
 
 
     # scope :users do
