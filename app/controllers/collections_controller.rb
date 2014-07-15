@@ -4,12 +4,11 @@ class CollectionsController < ApplicationController
   # GET /collections
 
   def index
-
-  @collections = Collection.all
-  @collection = Collection.find_by(params[:id])
-  @user = User.find_by(params[:id])
-  @item = Item.find_by(params[:id])
-  @items = Item.all
+    @collections = Collection.all
+    @collection = Collection.find_by(params[:id])
+    @user = User.find_by(params[:id])
+    @item = Item.find_by(params[:id])
+    @items = Item.all
   
     respond_to do |format|
       format.html { } # index.html.erb
@@ -19,8 +18,13 @@ class CollectionsController < ApplicationController
 
 
   # GET /collections/1
-#   def show
-#   end
+  def show
+    # collections = Collection.all
+    @collection = Collection.find_by(id: params[:id])
+    # user = User.find_by(id: params[:id])
+    item = Item.find_by(id: params[:id])
+    @items = Item.all
+  end
 
   # GET /collections/new
   def new
@@ -52,11 +56,11 @@ class CollectionsController < ApplicationController
 #     end
 #   end
 
-#   # DELETE /collections/1
-#   def destroy
-#     @collection.destroy
-#     redirect_to collections_url, notice: 'Collection was successfully destroyed.'
-#   end
+  # DELETE /collections/1
+  def destroy
+    @collection.destroy
+    redirect_to collections_url, notice: 'Collection was successfully destroyed.'
+  end
 
 #   private
 #     # Use callbacks to share common setup or constraints between actions.

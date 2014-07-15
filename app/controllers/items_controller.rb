@@ -27,13 +27,10 @@ class ItemsController < ApplicationController
     @item = Item.find_by(id: params[:id])
   end
 
-
   def new
     @item = Item.new
     @collections = current_user.collections
-
   end
-
 
   def create
     @item = Item.new( item_params )
