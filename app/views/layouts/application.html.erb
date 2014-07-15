@@ -6,11 +6,12 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
     <div class="navbar  navbar-fixed-top navbar-inverse" role="navigation">  
     <!-- Top Menu Bar: "fixed" stays on top, "static" moves with content -->
-    <!-- "navbar-inverse" inverts navbar bgcolor from normal bgcolor --> 
+    <!-- "navbar-inverse" inverts navbar bgcolor from normal bgcolor -->
       <div class="container-fluid">  <!-- Bootstrap 2-column nav & body, not fixed width-->
       <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -38,13 +39,13 @@
       <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search A Wardrobe <span class="caret"></span></button>
         <ul class="dropdown-menu">
-          <li><a href="help.html">Travel Bag</a></li>
-          <li class="divider"></li>
           <li><a href="main.html">Hong Kong</a></li>
+          <li class="divider"></li>
           <li><a href="help.html">New York</a></li>
           <li><a href="help.html">London</a></li>
-          <li class="divider"></li>
-          <li><a href="storage.html">Storage</a></li>
+          <!-- <li class="divider"></li> -->
+          <!-- <li><a href="help.html">Travel Bag</a></li> -->
+          <!-- <li><a href="storage.html">Storage</a></li> -->
         </ul>
       </div><!-- /btn-group -->
       <div class="ui-widget">
@@ -64,7 +65,7 @@
           <ul class="nav  nav-pills "> <!-- navbar-nav navbar-right-->
               <li class="dropdown">    
 
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="">
                     My Wardrobes <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
@@ -88,7 +89,7 @@
                   </ul>
 
               <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="">
                             Help <span class="caret"></span>
                           </a>
                   <ul class="dropdown-menu">
@@ -105,9 +106,11 @@
    
       </div>
     </div>
-    <%= yield %>
+    <main class="main">
+      <%= yield %>
+    </main>
 
     
-  <script type="text/javascipt" source = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascipt" source = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 </body>
 </html>

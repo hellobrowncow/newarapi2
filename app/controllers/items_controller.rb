@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-      redirect_to '/items'
+    @item = Item.find_by(id: params[:id])
   end
 
 
@@ -50,22 +50,34 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find_by(params[:id])
+    @item = Item.find_by(id: params[:id])
+    @collections = current_user.collections
+
   end
 
   def update
+      @item = Item.find_by(id: params[:id])
+      if @item.update_attributes(item_params)
+        redirect_to item_path(@item)
+      else 
+        render action: 'edit', status: :unprocessable_entity, location: @item
+      end
+
+
   end
 
   def destroy
     # @item.destroy
     # respond_to do |format|
+    @item = Item.find_by(id: params[:id])
+    @item.destroy
+    redirect_to items_path
+
+    
+    # respond_to do |format|
     #   format.html { redirect_to items_url }
     #   format.json { render json: Item.all }
-
-    #@item = Item.destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    #end
+    # end
   end
 
   private

@@ -14,12 +14,12 @@
         <div class="slider filtering1">        <!-- First Carousel -->
 
           <% c=0%>
-          <% for @item in @items%>
+          <% for item in @items%>
           <div><%c +=1%><br>
           <center>
-          <%= @item.color %>
-          <%= @item.clothing_type %>
-          <%= image_tag @item.picture.carousel %>
+          <%= item.color %>
+          <%= item.clothing_type %>
+          <%= link_to(image_tag(item.picture.carousel), item_path(item))%>
           </center>
           </h5></div>
           <% end %>
@@ -64,9 +64,11 @@
           <div class="clothing_type"><%= item.clothing_type %></div><br>   
 
           <div class="actions">  
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <%= token_tag nil %>
             <%= link_to "new", newitem_path %> |             
-            <%= link_to "edit", edit_item_path(item) %> |  
-            <%= link_to "remove", item, :confirm => 'Are you sure?', :method => :delete %>  
+            <%= link_to "edit", item_path(item) %> |  
+            <%= link_to "remove", item_path(item), data: {:confirm => 'Are you sure?'}, :method => :delete %>  
           </div>  
         </div>  
         <br><br>

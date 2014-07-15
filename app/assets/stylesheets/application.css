@@ -1,6 +1,7 @@
 /*
  *= require slick
  *= require_self
+
  */
 .slider h3 {
   text-align: center;
@@ -10,4 +11,8 @@
 .slider.filtering1 img {
   margin: 0;
   vertical-align: bottom;
+}
+
+.main {
+  margin-top: 60px;
 }
