@@ -29,21 +29,27 @@ class CollectionsController < ApplicationController
   # GET /collections/new
   def new
     @collection = Collection.new
-    @collections = Collection.all
   end
 
-#   # GET /collections/1/edit
-#   def edit
-#   end
 
 #   # POST /collections
   def create
-    collection = Collection.new
+    @collection = Collection.new(collection_params)
+    @collection.user_id = current_user.id
 
-    if collection.save
+    if @collection.save
       redirect_to '/collections', notice: 'Collection was successfully created.'
     else
       render action: 'new'
+    end
+  end
+
+  def update
+    @collection = Collection.find_by(id: params[:id])
+    if @collection.update_attributes(collection_params)
+      redirect_to collection_path(@collection)
+    else 
+      render action: 'show', status: :unprocessable_entity, location: @collection
     end
   end
 
@@ -58,6 +64,7 @@ class CollectionsController < ApplicationController
 
   # DELETE /collections/1
   def destroy
+    @collection = Collection.find_by(id: params[:id])
     @collection.destroy
     redirect_to collections_url, notice: 'Collection was successfully destroyed.'
   end
@@ -72,4 +79,10 @@ class CollectionsController < ApplicationController
 #     def collection_params
 #       params.require(:collection).permit(:location)
 #     end
+end
+
+private
+
+def collection_params
+  params.require(:collection).permit(:location)
 end
