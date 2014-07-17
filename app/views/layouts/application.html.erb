@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <title>PMC - Stash your Threads Online</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Jasny Bootstrap widgets only functions with these CDNs...a problem with Rails Gems??? -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.10.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/css/jasny-bootstrap.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/js/jasny-bootstrap.js"></script>
+
+
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -44,12 +51,13 @@
 
         <ul class="dropdown-menu">
           <% current_user.collections.each do |collection| %>
-          <li><%= link_to collection_path(collection) do %>
-            <span class="badge pull-right"><%= collection.items.length %></span>
-            <%= collection.location %>
-            <% end %>
-            <% end %>
-          </li>
+            <li>
+              <%= link_to collection_path(collection) do %>
+                <span class="badge pull-right"><%= collection.items.length %></span>
+                <%= collection.location %>
+              <% end %>
+            </li>
+          <% end %>
           <!-- <li class="divider"></li> -->
           <!-- <li><a href="help.html">Travel Bag</a></li> -->
           <!-- <li><a href="storage.html">Storage</a></li> -->

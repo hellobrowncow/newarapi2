@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :color
       t.string :clothing_type
       t.uuid :collection_id, index: true
-
+      t.uuid :tags_id, index: true
       t.timestamps
     end
   end

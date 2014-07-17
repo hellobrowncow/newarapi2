@@ -19,13 +19,49 @@
           <%= f.text_field :color, class: "form-control" %>
         </div>
         <div class="form-group">
+         <%= fields_for @tag, @tag.other do |t| %>
+         <%= t.label :other %>
+         <%= t.text_field :other, class: "form-control" %>
+         <%end%>
+        </div>
+        <div class="form-group">
           <%= f.label :picture %>
           <%= f.file_field :picture, class: "form-control" %>
         </div>
-        <div class="form-group">
+
+<!-- Experimental File Upload Widget -->
+            <div class="form-group">
+             <div class="fileinput fileinput-new" data-provides="fileinput">
+              <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                <img data-src="holder.js/100%x100%" alt="Image preview">
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+              <div>
+                <span class="btn btn-default btn-file">
+                <span class="fileinput-new">Select image</span>
+                <span class="fileinput-exists">Change</span>
+                <input class ="form-control" id="item_picture" name="item[picture]" type="file"></span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+              </div>
+            </div>
+            <div class="form-group">
+
           <%= f.submit class: "btn btn-warning" %>
         </div>
       </fieldset>
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+<script src="http://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript">
+var fileinput = $('.fileinput').fileinput();
+fileinput.on('change.bs.fileinput', function(e, files){
+    console.log('change me!');
+})
+</script>

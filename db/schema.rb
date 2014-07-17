@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140704053708) do
     t.string   "color"
     t.string   "clothing_type"
     t.uuid     "collection_id"
+    t.uuid     "tags_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140704053708) do
     t.boolean  "favorite"
     t.integer  "rating"
     t.string   "other"
+    t.uuid     "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

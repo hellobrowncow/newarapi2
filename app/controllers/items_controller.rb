@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @tag = Tag.new
     @collections = current_user.collections
   end
 

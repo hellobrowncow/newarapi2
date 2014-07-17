@@ -4,6 +4,7 @@ class CreateTags < ActiveRecord::Migration
       t.boolean :favorite
       t.integer :rating
       t.string :other
+      t.uuid :item_id, index: true
       t.timestamps
     end
 
