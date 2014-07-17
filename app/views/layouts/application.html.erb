@@ -37,19 +37,28 @@
   <div class="nav col-sm-4 pull-right">
     <div class="input-group">
       <div class="input-group-btn">
+
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search A Wardrobe <span class="caret"></span></button>
+
+
+
         <ul class="dropdown-menu">
-          <li><a href="main.html">Hong Kong</a></li>
-          <li class="divider"></li>
-          <li><a href="help.html">New York</a></li>
-          <li><a href="help.html">London</a></li>
+          <% current_user.collections.each do |collection| %>
+          <li><%= link_to collection_path(collection) do %>
+            <span class="badge pull-right"><%= collection.items.length %></span>
+            <%= collection.location %>
+            <% end %>
+            <% end %>
+          </li>
           <!-- <li class="divider"></li> -->
           <!-- <li><a href="help.html">Travel Bag</a></li> -->
           <!-- <li><a href="storage.html">Storage</a></li> -->
         </ul>
       </div><!-- /btn-group -->
       <div class="ui-widget">
-        <input id="tags" size="50" type="text" class="form-control" placeholder="Find my threads">
+        <form class="navform" action="tags#show" method="get">
+          <input id="tags" size="50" type="text" class="form-control" placeholder="Find my threads">
+        </form> 
       </div>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
@@ -73,19 +82,19 @@
                           <span class="badge pull-right">0</span>
                           Travel Bag</a></li>
                       <li role="presentation" class="divider"></li>
-                      <li><a href="main.html">
-                          <span class="badge pull-right">25</span>
-                          Hong Kong</a></li>
-                      <li><a href="help.html">
-                          <span class="badge pull-right">100</span>
-                          New York</a></li>
-                      <li><a href="help.html">
-                          <span class="badge pull-right">55</span>
-                          London</a></li>
+                      <% current_user.collections.each do |collection| %>
+                      <li>
+                        <%= link_to collection_path(collection) do %>
+                        <span class="badge pull-right"><%= collection.items.length %></span>
+                        <%= collection.location %>
+                        <% end %>
+                      </li>
+                      <% end %>
                       <li role="presentation" class="divider"></li>
                       <li><a href="storage.html">
                           <span class="badge pull-right">34</span>
                           Storage</a></li>
+
                   </ul>
 
               <li class="dropdown">
@@ -112,5 +121,12 @@
 
     
   <!-- <script type="text/javascipt" source = "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+  <script>
+$('#form').keydown(function(e){
+    if (e.keyCode === 13) { // If Enter key pressed
+        $(this).trigger('submit');
+    }
+});
+  </script>
 </body>
 </html>

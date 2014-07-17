@@ -40,8 +40,8 @@ collections = Collection.create([
 items = Item.create([
   {
     id: SecureRandom.uuid,
-    color: "blue",
-    clothing_type: "jeans",
+    color: "black",
+    clothing_type: "t-shirt",
     picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/T-Shirt_mind_the_gap.jpg/906px-T-Shirt_mind_the_gap.jpg"),
     collection: collections[0]
   },
