@@ -6,12 +6,65 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <!-- Jasny Bootstrap widgets only functions with these CDNs...a problem with Rails Gems??? -->
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.10.1.js"></script>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/css/jasny-bootstrap.css">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/js/jasny-bootstrap.js"></script>
 
-<link rel="stylesheet" type="text/css" href="http://jasny.github.io/bootstrap/examples/navmenu/navmenu.css">
+
+<!-- <link rel="stylesheet" type="text/css" href="//jasny.github.io/bootstrap/examples/navmenu/navmenu.css"> --> <!-- May need to adjust -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-git2.js"></script>
+
+<style>
+/*  @media screen and (max-width: 992px) {
+*/
+  /* outer div */
+  .offcanvas {
+/*    position: relative;*/
+/*    left: 0;*/
+/*    -webkit-transition:  15s width;*/
+/*    -most-transition: left 2s ease-in;*/
+    transition:  15s width; /*Mozilla compatible*/
+border-width: 0;
+  }
+/*    }*/
+
+    .navbar {
+border-width: 0;
+z-index: 1;
+    }
+
+html {
+  overflow-x:  hidden;
+  overflow-y:  hidden;
+  }
+
+html, body {
+  height: 100%;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 1px;
+}
+
+.navmenu {
+  z-index: 1;
+}
+
+.canvas {
+  position: relative;
+  left: 0;
+  z-index: 2;
+  min-height: 100%;
+  padding: 50px 0 0 0;
+  background: #fff;
+}
+
+
+
+
+
+</style>
 
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
@@ -127,9 +180,11 @@
     </div>
     <main class="main">
 <!-- Experimental NavMenu -->
-<body>
-    <div class="navmenu navmenu-default navmenu-fixed-right offcanvas"> <a class="navmenu-brand visible-md visible-lg" href="#">Project name</a>
-
+<!-- <body> -->
+ 
+ 
+ <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">  <!-- can add left/right here to change position -->
+ <a class="navmenu-brand visible-md visible-lg" href="#">Project name</a>
         <ul class="nav navmenu-nav">
             <li class="active"><a href="./">Slide in</a>
 
@@ -144,44 +199,17 @@
 
             </li>
         </ul>
-        <ul class="nav navmenu-nav">
-            <li><a href="#">Link</a>
-
-            </li>
-            <li><a href="#">Link</a>
-
-            </li>
-            <li><a href="#">Link</a>
-
-            </li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-
-                <ul class="dropdown-menu navmenu-nav">
-                    <li><a href="#">Action</a>
-
-                    </li>
-                    <li><a href="#">Another action</a>
-
-                    </li>
-                    <li><a href="#">Something else here</a>
-
-                    </li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a>
-
-                    </li>
-                    <li><a href="#">One more separated link</a>
-
+   
                     </li>
                 </ul>
             </li>
         </ul>
     </div>
     <div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
-        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu"> <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" > <!-- data-canvas="body" -->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
 
         </button> <a class="navbar-brand" href="#">Project name</a>
 
@@ -195,7 +223,9 @@
         <p>Also take a look at the examples for a navmenu with <a href="../navmenu-push">push effect</a> and <a href="../navmenu-reveal">reveal effect</a>.</p>
     </div>
     <!-- /.container -->
-</body>
+</div>
+
+<!-- </body> -->
 
 <!-- Experimental NavMenu End -->
 
