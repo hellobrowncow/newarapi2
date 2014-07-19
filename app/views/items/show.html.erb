@@ -1,18 +1,25 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <p><%= image_tag @item.picture.carousel%></p>
 
-    <%= image_tag @item.picture.carousel%><br>
+    <p>
+      <%= link_to "edit", edit_item_path(@item) %> |  
+      <%= link_to "delete", item_path(@item), method: :delete, confirm: "Really delete this item?" %>
+    </p>
 
-    <%= link_to "edit", edit_item_path(@item) %> |  
-    <%= link_to "delete", item_path(@item), method: :delete, confirm: "Really delete this item?" %>
+    <p>
+      <%= @item.color%>
+      <%= @item.clothing_type%>
+    </p>
 
-    <br>
-    <%= @item.color%>
-    <%= @item.clothing_type%>
+    <p>
+      <%= link_to "Items", items_path %> | 
+      <%= link_to "Collections", collections_path%>
+    </p>
 
-    <br>
-    <%= link_to "Items", items_path %> | 
-    <%= link_to "Collections", collections_path%> 
+    <p>
+      <%= @item.tags.map {|t| t.name }.join("<br>").html_safe %>
+    </p>
   </div>
 </div>

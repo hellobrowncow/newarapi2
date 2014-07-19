@@ -1,7 +1,5 @@
 User.destroy_all
-Item.destroy_all
 Collection.destroy_all
-Tag.destroy_all
 
 users = User.create([
   {
@@ -41,6 +39,7 @@ items = Item.create([
   {
     id: SecureRandom.uuid,
     color: "black",
+    favorite: false,
     clothing_type: "t-shirt",
     picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/T-Shirt_mind_the_gap.jpg/906px-T-Shirt_mind_the_gap.jpg"),
     collection: collections[0]
@@ -49,6 +48,7 @@ items = Item.create([
 
     id:SecureRandom.uuid,
     color: "blue",
+    favorite: true,
     clothing_type: "jacket",
     picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG/576px-Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG"),
     collection: collections[1]
@@ -58,18 +58,40 @@ items = Item.create([
 Tag.create([
   {
     id: SecureRandom.uuid,
-    favorite: true,
-    rating: "5",
-    other: "Worn at the 1969 Winter Xmas Extravaganza",
-    items: items
+    name: "Worn at the 1969 Winter Xmas Extravaganza",
+    item: items[0]
   },
 
   {
-    id:SecureRandom.uuid, 
-    favorite: false,
-    rating: "2",
-    other: "Worn during my time in the gulag",
-    items: items
+    id:SecureRandom.uuid,
+    name: "Worn during my time in the gulag",
+    item: items[0]
   }
 ])
 
+Rating.create([
+  {
+    id: SecureRandom.uuid,
+    user: users[0],
+    item: items[0],
+    rank: 4
+  },
+  {
+    id: SecureRandom.uuid,
+    user: users[0],
+    item: items[1],
+    rank: 3
+  },
+  {
+    id: SecureRandom.uuid,
+    user: users[1],
+    item: items[0],
+    rank: 5
+  },
+  {
+    id: SecureRandom.uuid,
+    user: users[1],
+    item: items[1],
+    rank: 1
+  }
+])

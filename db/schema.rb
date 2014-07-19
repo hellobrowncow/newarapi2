@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704053708) do
+ActiveRecord::Schema.define(version: 20140718042336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,23 +27,22 @@ ActiveRecord::Schema.define(version: 20140704053708) do
   create_table "items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "color"
     t.string   "clothing_type"
+    t.string   "picture"
+    t.boolean  "favorite"
     t.uuid     "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
   end
 
-  create_table "items_tags", id: false, force: true do |t|
-    t.uuid "item_id"
-    t.uuid "tag_id"
+  create_table "ratings", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.integer "rank"
+    t.uuid    "item_id"
+    t.uuid    "user_id"
   end
 
   create_table "tags", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.boolean  "favorite"
-    t.integer  "rating"
-    t.string   "other"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.uuid   "item_id"
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|

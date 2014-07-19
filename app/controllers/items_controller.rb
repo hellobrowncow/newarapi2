@@ -28,8 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
     @collections = current_user.collections
+    @item = Item.new
+    @item.tags.build
   end
 
   def create
@@ -47,8 +48,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find_by(id: params[:id])
     @collections = current_user.collections
+    @item = Item.find_by(id: params[:id])
+    @item.tags.build
 
   end
 
@@ -70,7 +72,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:collection_id, :color, :clothing_type, :picture)
+    params.require(:item).permit(:collection_id, :color, :clothing_type, :favorite, :picture, tags_attributes: [:name, :id])
   end
 
 end
