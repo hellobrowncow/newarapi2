@@ -9,18 +9,19 @@
         <%=raw Time.now.strftime("<i>%A, %B %d</i> <strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %><br>
       </div>
 
-
-      <!-- User already logged in  -->
-      <!-- <%= link_to "Login", login_path %>  <br> --> 
-
       <div class='link'>
-      <%= link_to "Edit Profile", edit_user_path %>
+        <%= link_to "Edit Profile", edit_user_path %>
       </div>
       <div class='link'>
-        <%= link_to "Items", items_path %>
+        <%= link_to "View Collections", collections_path %> |
+        <%= link_to "Add Collection", new_collection_path %>
       </div>
       <div class='link'>
-        <%= link_to "Collections", collections_path %>
+        <%=@collections.length%>
+        <%if @collections.length > 0 %>
+        <%= link_to "View Items", items_path %> |
+        <%= link_to "Add Item", new_item_path %>
+        <% end %>
       </div>
       <div class='link'>  <%= link_to "Logout", logout_path %>
       </div>

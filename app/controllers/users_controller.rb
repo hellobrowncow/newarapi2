@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     current_user
+    @collections = Collection.all
     # @user = User.find_by(id: params[:id])
     # @current_user = current_user.user
   end
