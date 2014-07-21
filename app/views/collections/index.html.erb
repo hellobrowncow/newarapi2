@@ -11,108 +11,75 @@
     <!-- Kwiks pieces -->
   <script src="//cdn.jsdelivr.net/kwicks/1.5.1/jquery.kwicks-1.5.1.js"></script>
 
-<h2>Locations:</h2>
-<%if @collections.length > 0 %>
-<%=link_to "Items", items_path%> |
-<% end -%> 
-<%=link_to "Profile", user_path(@user) %> <br>
-<%=link_to "Create a new Location", new_collection_path%>
 
-<% g=0%>
+  <div class="col-md-8 col-md-offset-2">
+    <!-- <div class="col-sm-8 col-md-9 col-md-offset-2 main"> -->
+    <!--   <div class="col-sm-9 col-md-10 main"> -->
 
-<%@collections.each do |collection|%>
+    <h2>Locations:</h2>
+    <%if @collections.length > 0 %>
+    <%=link_to "Items", items_path%> |
+    <% end %> 
+    <%=link_to "Profile", user_path(@user) %> | 
+    <%=link_to "Create New Location", new_collection_path%>
 
-<div><h3>Collection: <%=g +=1%></h3><br>
-  
-  <%= link_to collection_path(collection) do %>
-  <strong><%= @user.name%> @<%= collection.location %>:</strong> (ID: <%=collection.id %>)<br>
-  <% end %>
-  Your items in this collection: <br>
-  <%d=0%>
-  <%for @item in @items%>
-    <%if collection.id == @item.collection_id%>
-    <%d +=1%>
-    <%=image_tag @item.picture.thumbnail%> 
-    <%=link_to item_path(@item) do%>
-    <%=@item.color%> <%=@item.clothing_type%><br>
-    <% end %>
-    <%end%>
-  <%end%>
-  <%if d==0%>
-    <strong>This collection is empty!</strong>
-  <%elsif d==1%>
-    <strong><br>You have <%=d%> item in this collection.</strong>
-  <%else%>
-    <strong><br>You have <%=d%> items in this collection.</strong>
-  <%end%>    
-<%end%>
+    <div id="container">
+      <!-- <h2>Wardrobes</h2> -->
+      <div class="flexslider">
+        <ul class="slides">
 
-  <div class="col-sm-8 col-md-9 col-md-offset-2 main">
-
-
-      <div class="col-sm-9 col-md-10 main">
-
-          <% fsk=0%>
+          <%= fsk=0%>
           <% for @collection in @collections%>
-          <div><h5><%=fsk +=1%><br>
-          <%= @collection.location %><br>
-          <%= @collection.id %>
+          <%= fsk +=1%>
+          <% if fsk <= 5 %>
+          <li>
+            <img src="images/locations/hongkong.jpg" height="525" width="840" />
+            <div class="flex-caption">
+              <h3><%= @collection.location %></h3>
+              <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
+            </div>
+          </li>
 
-                    <br><br>
-        </h5></div>
-        <% end %>
+          <% end %>
+          <% end %>
 
-
-
-  <div id="container">
-    <h2>Wardrobes</h2>
-    
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-          <img src="images/" height="525" width="840" />
-          <div class="flex-caption">
-            <h3></h3>
-<!--             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-          </div>
-        </li>
-        <li>
-          <a href="#"><img src="images/" height="525" width="840"  /></a>
-          <div class="flex-caption">
-            <h3></h3>
-<!--             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-          </div>
-        </li>
-        <li>
-          <img src="images/" height="525" width="840" />
-          <div class="flex-caption">
-            <h3></h3>
-<!--             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-          </div>
-        </li>
-        <li>
-          <img src="images/" height="525" width="840" />
-          <div class="flex-caption">
-            <h3></h3>
-<!--             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-          </div>
-        </li>
-        <li>
-          <img src="" height="525" width="840" />
-          <div class="flex-caption">
-            <h3></h3>
-<!--             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-          </div>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  <span id="responsiveFlag"></span>
+    <span id="responsiveFlag"></span>
+
+
+    <% g=0%>
+
+    <%@collections.each do |collection|%>
+
+    <div><h3>Collection: <%=g +=1%></h3><br>
+
+      <%= link_to collection_path(collection) do %>
+      <strong><%= @user.name%> @<%= collection.location %>:</strong> (ID: <%=collection.id %>)<br>
+      <% end %>
+      Your items in this collection: <br>
+      <%d=0%>
+      <%for @item in @items%>
+      <%if collection.id == @item.collection_id%>
+      <%d +=1%>
+      <%=image_tag @item.picture.thumbnail%> 
+      <%=link_to item_path(@item) do%>
+      <%=@item.color%> <%=@item.clothing_type%><br>
+      <% end %>
+      <%end%>
+      <%end%>
+      <%if d==0%>
+      <strong>This collection is empty!</strong>
+      <%elsif d==1%>
+      <strong><br>You have <%=d%> item in this collection.</strong>
+      <%else%>
+      <strong><br>You have <%=d%> items in this collection.</strong>
+      <%end%>    
+      <%end%>
+  <!-- </div> -->
 
 </div>
-</div>
-
-
 
 
 
