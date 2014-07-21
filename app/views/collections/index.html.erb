@@ -28,16 +28,20 @@
       <div class="flexslider">
         <ul class="slides">
 
-          <%= fsk=0%>
+          <% fsk=0%>
           <% for @collection in @collections%>
-          <%= fsk +=1%>
+          <% fsk +=1%>
           <% if fsk <= 5 %>
-          <li>
-            <img src="images/locations/hongkong.jpg" height="525" width="840" />
+
+          <li> 
+            <%=link_to(image_tag("locations/hongkong.jpg"), collection_path(@collection), method: :get) %> 
+
+                    <%= link_to collection_path(@collection) do%>
             <div class="flex-caption">
-              <h3><%= @collection.location %></h3>
+              <h3><%=@collection.location %></h3>
               <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
             </div>
+<% end %>
           </li>
 
           <% end %>
