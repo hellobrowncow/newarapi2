@@ -1,28 +1,40 @@
-<html>
-  
-Test
+
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
 
 
-<%= form_tag @user, multipart: true do %>
+    <%= form_for :user, url: users_path, method: :post, html: { role: "form", id: "newuser" } do |f| %>
+      <div class="row">
+        <div class="col-lg-8">
+          <fieldset>
+            <legend>Add User</legend>
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Enter your name", autofocus: true, required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: "form-control", placeholder: "Enter your last name", autofocus: true, required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address", autofocus: true, required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, id: 'password-label' %>
+              <%= f.password_field :password, class: "form-control", placeholder: "Enter your password", required: true %>
+            </div>
+            <div class="form-group">
+            <%= f.label :password_confirmation, id: 'password-label' %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Enter your password", required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Add User", class: "btn btn-success", id: 'submit-button' %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-  <%= label_tag :name, "First Name:" %><br>
-  <%= text_field_tag :name %><br>
-  <%= label_tag :last_name, "Last Name:" %><br>
-  <%= text_field_tag :last_name %><br>
-  <%= label_tag :email, "Email:" %><br>
-  <%= text_field_tag :email %><br>
-
-
-
-  <%= submit_tag 'Add User!!'%><br>
-
-  <%= ">>>>>>>>>>>>>>params[:id] #{params[:ids]}"%><br>
-
-  <%= link_to 'Delete User', @user, method: :destroy %>
-
-<% end %>
-
-
-
-
-</html>

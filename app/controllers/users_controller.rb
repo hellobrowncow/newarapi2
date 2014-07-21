@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   respond_to :json
+      layout 'splash'
 
   def index
 
@@ -18,9 +19,9 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new  #params[:user]
-
+    @user = User.new( user_params )
     @user.save
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -36,4 +37,9 @@ class UsersController < ApplicationController
     @user = User.all
     @user.destroy
   end
+
+  def user_params
+    params.require(:user).permit(:name, :last_name, :email, :password, :password_confirmation)
+  end
+
 end

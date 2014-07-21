@@ -4,8 +4,8 @@ Newarapi2::Application.routes.draw do
 
     get    'login'  => 'session#new',   as: :login                   # Login form
     post   'login'  => 'session#create'                      # Log user in (start session)
-    get    'logout' => 'session#destroy'
-    delete 'logout' => 'session#destroy' # , as: :logout            # Log user out (end session)
+    get    'logout' => 'session#destroy' , as: :logout 
+   # delete 'logout' => 'session#destroy'  , as: :logout            # Log user out (end session)
 
 
 
