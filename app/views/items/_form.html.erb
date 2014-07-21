@@ -29,13 +29,17 @@
           <%= f.label :picture %>
           <%= f.file_field :picture, class: "form-control" %>
         </div>
+
         <fieldset>
           <legend>Tags</legend>
           <%= f.fields_for :tags do |builder| %>
-            <div class="form-group">
-              <%= builder.text_field :name, class: "form-control" %>
-            </div>
+            <%= render "tag_fields", f: builder %>
+
           <% end %>
+          <div class="links">
+            <%= link_to_add_association "add tag", f, :tags %>
+          </div>
+            
         </fieldset>
         <div class="form-group">
           <%= f.submit class: "btn btn-warning" %>

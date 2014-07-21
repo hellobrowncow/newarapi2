@@ -59,6 +59,7 @@ class ItemsController < ApplicationController
     if @item.update_attributes(item_params)
       redirect_to item_path(@item)
     else 
+      @collections = current_user.collections
       render action: 'edit', status: :unprocessable_entity, location: @item
     end
   end
@@ -72,7 +73,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:collection_id, :color, :clothing_type, :favorite, :picture, tags_attributes: [:name, :id])
+    params.require(:item).permit(:collection_id, :color, :clothing_type, :favorite, :picture, tags_attributes: [:name, :id, :_destroy])
   end
 
 end

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+    <fieldset>
+      <legend>User</legend>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Enter your name", autofocus: true, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "Enter your last name", autofocus: true, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address", autofocus: true, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, id: 'password-label' %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, id: 'password-label' %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Enter your password" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit class: "btn btn-warning" %>
+      </div>
+    </fieldset>
+    <% end %>
+  </div>
+</div>

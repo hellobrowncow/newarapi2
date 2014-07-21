@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # @user = User.find_by(id: params[:id])
+    current_user
+    # @current_user = current_user.user
   end
 
   def new
@@ -24,12 +27,28 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        redirect_to root_url
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def edit
+    # @user = User.find_by(id: params[:id])
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    # @item = Item.find_by(id: params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user)
+    else 
+      render action: 'edit', status: :unprocessable_entity, location: @item
     end
   end
 

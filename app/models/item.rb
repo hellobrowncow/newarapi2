@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   has_many :tags, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
-  accepts_nested_attributes_for :tags, allow_destroy: true
+  accepts_nested_attributes_for :tags, allow_destroy: true, reject_if: :all_blank
 
   mount_uploader :picture, PictureUploader
 end
