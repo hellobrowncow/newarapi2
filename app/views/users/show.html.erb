@@ -17,7 +17,6 @@
         <%= link_to "Add Collection", new_collection_path %>
       </div>
       <div class='link'>
-        <%=@collections.length%>
         <%if @collections.length > 0 %>
         <%= link_to "View Items", items_path %> |
         <%= link_to "Add Item", new_item_path %>
