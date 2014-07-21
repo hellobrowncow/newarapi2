@@ -1,8 +1,10 @@
 
 
 <h2>Locations:</h2>
-<%=link_to "Items", items_path%> | 
-<%=link_to "Site Index", root_url%> <br>
+<%if @collections.length > 0 %>
+<%=link_to "Items", items_path%> |
+<% end -%> 
+<%=link_to "Profile", user_path(@user) %> <br>
 <%=link_to "Create a new Location", new_collection_path%>
 
 <% g=0%>
