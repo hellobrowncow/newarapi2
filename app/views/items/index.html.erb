@@ -2,6 +2,9 @@
 
       <div class="filter">
           <!-- <a href="javascript:void(0)" class="button js-filter">Filter Slides</a> -->
+          <!-- <a href="javascript:void(0)" class="button js-add-slide">Add Slides</a> -->
+          <a href="javascript:void(0)" class="button js-pause">AutoPlay Slides</a>
+
         </div>
       <div class="col-sm-9 col-md-10 main">
     <%= link_to "Site", root_url %> |  
@@ -39,13 +42,19 @@
 
 
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 <script type="text/javascript">
    
   $(document).ready(function(){
     $('.filtering1').slick({
+      arrows: true,
+      autoplay: false,
+      autoplaySpeed: '2000',
+      pauseOnHover: true,
+      centerMode: false,
+      centerPadding: '0px',
       slidesToShow: 3,
       slidesToScroll: 1,
-      arrows: true,
       responsive: [
       {
         breakpoint: 1024,
@@ -104,6 +113,9 @@
       ]
     });
 
+</script>
+
+<script type="text/javascript">
     var filtered = false;
 
     $('.js-filter').on('click', function(){
@@ -118,7 +130,38 @@
       }
     });
 
-        });
+  });
 </script>
 
+<script type="text/javascript">
+  var slideIndex = 1;
+$('.js-add-slide').on('click', function(){
+  slideIndex++;
+  $('.filtering1').slickAdd('<div><h3>'+slideIndex+'</h3></div>');
+});
 
+$('.js-remove-slide').on('click', function(){
+  $('.filtering1').slickRemove(slideIndex - 1);
+  if (slideIndex !== 0) {
+    slideIndex--;
+  }
+});
+</script>
+
+<script type="text/javascript">
+  var pause = true;
+
+$('.js-pause').on('click', function(){
+  if(pause === false) {
+    $('.filtering1').slickPause();
+    $(this).text('Play');
+    pause = true;
+  } else {
+    $('.filtering1').slickPlay();
+    $(this).text('Pause');
+    pause = false;
+  }
+});
+
+});
+</script>
