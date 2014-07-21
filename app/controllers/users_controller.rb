@@ -1,18 +1,19 @@
 class UsersController < ApplicationController
-  respond_to :json
-      layout 'splash'
+  before_action :is_authenticated?, except: [:new, :create]
+  # respond_to :json
+      layout 'splash', only: [:new, :create]
 
   def index
 
     respond_to do |format|
-      format.html { } # index.html.erb
+      format.html { redirect_to user_path(current_user.id) } 
       format.json { render json: User.all }
     end
   end
 
   def show
-    # @user = User.find_by(id: params[:id])
     current_user
+    # @user = User.find_by(id: params[:id])
     # @current_user = current_user.user
   end
 
@@ -56,6 +57,8 @@ class UsersController < ApplicationController
     @user = User.all
     @user.destroy
   end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :last_name, :email, :password, :password_confirmation)

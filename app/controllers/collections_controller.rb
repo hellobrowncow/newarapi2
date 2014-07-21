@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   # before_action :set_collection, only: [:show, :edit, :update, :destroy]
-
+   before_action :is_authenticated?
   # GET /collections
 
   def index
