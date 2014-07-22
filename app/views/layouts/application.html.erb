@@ -39,32 +39,26 @@
 
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search A Wardrobe <span class="caret"></span></button>
 
-
-
         <ul class="dropdown-menu">
           <li>
             <% if current_user.collections.length == 0 %>
-              <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
+            <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
             <% end %>
           </li>
           <%  current_user.collections.each do |collection| %>
-            <li>
-              <%= link_to collection_path(collection) do %>
-                <span class="badge pull-right"><%= collection.items.length %></span>
-                <%= collection.location %>
-              <% end %>
-            </li>
-
+          <li>
+            <%= link_to collection_path(collection) do %>
+            <span class="badge pull-right"><%= collection.items.length %></span>
+            <%= collection.location %>
+            <% end %>
+          </li>
           <% end %>
-
-
-          <!-- <li class="divider"></li> -->
-          <!-- <li><a href="help.html">Travel Bag</a></li> -->
-          <!-- <li><a href="storage.html">Storage</a></li> -->
         </ul>
       </div><!-- /btn-group -->
+
+<!-- Search Menu -->
       <div class="ui-widget">
-        <form class="navform" action="tags#show" method="get">
+        <form class="navform" action="items#search" method="get">
           <input id="tags" size="50" type="text" class="form-control" placeholder="Find my threads">
         </form> 
       </div>

@@ -16,6 +16,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find_by(id: params[:id])
+
+    # @items = current_user.items.find_by(id: params[:id])
+
   end
 
   def new
@@ -59,6 +62,11 @@ class ItemsController < ApplicationController
     @item = Item.find_by(id: params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  def search
+    q = params[:item][:color]
+    @items = Item.find(:all, conditions: ["item LIKE %?%",q])
   end
 
   private

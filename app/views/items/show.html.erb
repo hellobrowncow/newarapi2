@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-sm-8 col-md-8 col-md-offset-5 col-md-offset-4 main">
     <p><%= image_tag @item.picture.carousel%></p>
 
     <p>
@@ -24,24 +24,3 @@
   </div>
 </div>
 
-    <ul class='kwicks kwicks-horizontal'>
-      <li class='kwicks-selected'></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-
-    
-
-    <script src='//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js' type='text/javascript'></script>
-    <script src='//cdn.jsdelivr.net/kwicks/1.5.1/jquery.kwicks-1.5.1.js' type='text/javascript'></script>
-    
-    <script type='text/javascript'>
-      $(function() {
-        $('.kwicks').kwicks({
-          minSize : 20,
-          spacing : 5,
-          behavior: 'slideshow'
-        });
-      });
-    </script>
