@@ -25,13 +25,13 @@ collections = Collection.create([
   {
     id: SecureRandom.uuid,
     location: "London",
-    user: users[0] 
+    # user: users[0] 
   },
   {
 
     id:SecureRandom.uuid,
     location: "Hong Kong",
-    user: users[0] 
+    # user: users[0] 
   }
 ])
 
@@ -52,6 +52,22 @@ items = Item.create([
     clothing_type: "jacket",
     picture: open("http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG/576px-Nike_Brazil_CBF_N98_Men%27s_Soccer_Track_Jacket_front.JPG"),
     collection: collections[1]
+  },
+    {
+    id: SecureRandom.uuid,
+    color: "blue",
+    favorite: false,
+    clothing_type: "t-shirt",
+    picture: open("http://upload.wikimedia.org/wikipedia/commons/8/8c/Hawaiian_Shirt.jpg"),
+    collection: collections[0]
+  },
+    {
+    id: SecureRandom.uuid,
+    color: "orange",
+    favorite: true,
+    clothing_type: "t-shirt",
+    picture: open("https://yy1.staticflickr.com/8387/8624896117_83263d53ce_z.jpg"),
+    collection: collections[0]
   }
 ])
 
@@ -66,6 +82,16 @@ Tag.create([
     id:SecureRandom.uuid,
     name: "Worn during my time in the gulag",
     item: items[0]
+  },
+    {
+    id: SecureRandom.uuid,
+    name: "sports",
+    item: items[1]
+  },
+    {
+    id: SecureRandom.uuid,
+    name: "summer",
+    item: items[2]
   }
 ])
 

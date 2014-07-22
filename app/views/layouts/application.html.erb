@@ -32,7 +32,6 @@
         <div class="nav navbar-collapse collapse">    
         <!-- Collects and Controls Right Navigation for Collapsible Hamburger -->
 
-<!-- BEGIN EXPERIMENTAL NAVIGATION from Bootstrap-->
 <!-- <div class="row"> -->
   <div class="nav col-sm-4 pull-right">
     <div class="input-group">
@@ -55,8 +54,6 @@
           <% end %>
 
 
-
-
           <!-- <li class="divider"></li> -->
           <!-- <li><a href="help.html">Travel Bag</a></li> -->
           <!-- <li><a href="storage.html">Storage</a></li> -->
@@ -71,8 +68,6 @@
   </div><!-- /.col-lg-6 -->
 <!--   </div> -->
 
-
-
 <!--           <form class="navbar-form navbar-right">  Deleted navbar-right
   <input class="form-control" placeholder="Search My Clothing..." aligntype="search" >
 </form> -->
@@ -85,10 +80,6 @@
                     My Wardrobes <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                      <li><a href="#">
-                          <span class="badge pull-right">0</span>
-                          Travel Bag</a></li>
-                      <li role="presentation" class="divider"></li>
                       <% current_user.collections.each do |collection| %>
                       <li>
                         <%= link_to collection_path(collection) do %>
@@ -98,10 +89,9 @@
                       </li>
                       <% end %>
                       <li role="presentation" class="divider"></li>
-                      <li><a href="storage.html">
-                          <span class="badge pull-right">34</span>
-                          Storage</a></li>
-
+                      <li><a href="#">
+                          <span class="badge pull-right">0</span>
+                          Travel Bag</a></li>
                   </ul>
 
               <li class="dropdown">
@@ -115,7 +105,6 @@
                       <li role="presentation" class="divider"></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Support</a></li>
                   </ul>
-              <!--             <li><a href="help.html">Help</a></li> -->
           </ul>
 
         </div>
