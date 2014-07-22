@@ -4,22 +4,13 @@ class ItemsController < ApplicationController
 
   def index
 
-    #@name = Item.find_by(params[:id])
-
     @items = Item.all
     @item = Item.find_by(params[:id])
     @collections = current_user.collections
 
     respond_to do |format|
-      format.html { } # index.html.erb
+      format.html { } 
       format.json { render json: @items }
-    # @items = if params[:ids]
-    #   puts ">>>>>>>>>>>>> params[:ids] #{params[:ids]}" #raw string
-    #   puts ">>>>>>>>>>>>> split, #{params[:ids].split(",")}" #split string
-      #Item.where(:id.in => params[:ids].split(",")) #"in" is for Mongo
-      
-    # else
-    #   Item.all.entries
     end
   end
 
@@ -38,7 +29,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to '/items', notice: 'Item was successfully created.' }
+        format.html { redirect_to 'items_path', notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }
