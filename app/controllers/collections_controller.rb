@@ -4,11 +4,13 @@ class CollectionsController < ApplicationController
   # GET /collections
 
   def index
+    # @collections = Collection.all
     @collections = current_user.collections.all
     @collection = Collection.find_by(params[:id])
-    @user = User.find_by(params[:id])
+
     @item = Item.find_by(params[:id])
     @items = Item.all
+    @user = User.find_by(params[:id])
   
     respond_to do |format|
       format.html { } # index.html.erb

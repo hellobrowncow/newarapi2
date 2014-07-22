@@ -4,9 +4,10 @@ class ItemsController < ApplicationController
 
   def index
 
-    @items = Item.all
-    @item = Item.find_by(params[:id])
     @collections = current_user.collections
+    @items = Item.all
+    # @items = Item.where(collection_id: @collections.map {|c| c.id })
+    @item = @items.find_by(params[:id])
 
     respond_to do |format|
       format.html { } 
@@ -64,10 +65,10 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  def search
-    q = params[:item][:color]
-    @items = Item.find(:all, conditions: ["item LIKE %?%",q])
-  end
+  # def search
+  #   q = params[:item][:color]
+  #   @items = Item.find(:all, conditions: ["item LIKE %?%",q])
+  # end
 
   private
 

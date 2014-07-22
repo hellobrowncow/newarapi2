@@ -7,7 +7,7 @@
           <%= f.label :collection %>
           <%= f.select(:collection_id,
             options_from_collection_for_select(
-              @collections, 'id', 'location'
+              current_user.collections, 'id', 'location'
             ), {}, class: "form-control") %>
         </div>
         <div class="form-group">

@@ -13,14 +13,6 @@
   margin-top: 8px;
 }
 
-.filtering1.slick-prev, .filtering1.slick-next {
-  top: 100%;
-}
-
-.slider.filtering1.slick-initialized.slick-slider.button.slick-next {
-  top: 0%;
-}
-
 .main {
   margin-top: 40px;
 }
