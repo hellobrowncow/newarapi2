@@ -13,12 +13,32 @@
   margin-top: 8px;
 }
 
+.filtering1.slick-prev, .filtering1.slick-next {
+  top: 100%;
+}
+
+.slider.filtering1.slick-initialized.slick-slider.button.slick-next {
+  top: 0%;
+}
+
+.main {
+  margin-top: 40px;
+}
+
+.slick-prev:before, .slick-next:before {
+  opacity: 0.43;
+}
+
 .slick-next {
   right: -55px;
 }
 
 .slick-prev {
   left: -55px;
+}
+
+.slick-slider { 
+  margin-bottom: 0px; 
 }
 
 .slider h3 {
@@ -28,10 +48,7 @@
 
 .slider.filtering1 img {
   margin: 0;
-  vertical-align: bottom;
+  /*vertical-align: bottom;*/
 }
 
-.main {
-  margin-top: 40px;
-}
 
