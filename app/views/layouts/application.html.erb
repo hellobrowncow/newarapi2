@@ -42,7 +42,11 @@
 
 
         <ul class="dropdown-menu">
-
+          <li>
+            <% if current_user.collections.length == 0 %>
+              <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
+            <% end %>
+          </li>
           <%  current_user.collections.each do |collection| %>
             <li>
               <%= link_to collection_path(collection) do %>
@@ -80,12 +84,17 @@
                     My Wardrobes <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
+                      <li>
+                        <% if current_user.collections.length == 0 %>
+                         <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
+                        <% end %>
+                      </li>
                       <% current_user.collections.each do |collection| %>
                       <li>
-                        <%= link_to collection_path(collection) do %>
-                        <span class="badge pull-right"><%= collection.items.length %></span>
-                        <%= collection.location %>
-                        <% end %>
+                          <%= link_to collection_path(collection) do %>
+                            <span class="badge pull-right"><%= collection.items.length %></span>
+                            <%= collection.location %>
+                          <% end %>
                       </li>
                       <% end %>
                       <li role="presentation" class="divider"></li>

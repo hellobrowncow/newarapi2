@@ -25,13 +25,13 @@ collections = Collection.create([
   {
     id: SecureRandom.uuid,
     location: "London",
-    # user: users[0] 
+    user: users[0] 
   },
   {
 
     id:SecureRandom.uuid,
     location: "Hong Kong",
-    # user: users[0] 
+    user: users[0] 
   }
 ])
 
