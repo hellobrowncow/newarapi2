@@ -12,17 +12,12 @@
   <script src="//cdn.jsdelivr.net/kwicks/1.5.1/jquery.kwicks-1.5.1.js"></script>
 
 
-  <div class="col-md-8 col-md-offset-2">
-    <div class="col-sm-8 col-md-11 col-md-offset-1 main">
-      <!-- <div class="col-sm-9 col-md-10 main"> -->
+  <!-- <div class="col-md-8 col-md-offset-2"> -->
+    <!-- <div class="col-sm-8 col-md-11 col-md-offset-1 main"> -->
+      <div class="col-sm-9 col-md-8 col-md-offset-2">
 
-    <h2>Locations:</h2>
-    <%=link_to "Profile", user_path(@user) %> | 
-    <%=link_to "Create New Location", new_collection_path%> | 
-    <%if @collections.length > 0 %>
-    <%=link_to "Items", items_path%> 
-    <% end %> 
-
+    <h2>My Places:</h2>
+ 
     <div id="container">
       <!-- <h2>Wardrobes</h2> -->
       <div class="flexslider">
@@ -45,38 +40,9 @@
       </div>
     </div>
     <span id="responsiveFlag"></span>
-
-  <div class="col-md-8 col-md-offset-3">
-    <% g=0%>
-
-    <%@collections.each do |collection|%>
-
-    <div><h3>Collection: <%=g +=1%></h3><br>
-
-      <%= link_to collection_path(collection) do %>
-      <strong><%= @current_user.name%> @<%= collection.location %>:</strong><br>
-      <% end %>
-      Your items in this collection: <br>
-      <%d=0%>
-      <%for @item in @items%>
-      <%if collection.id == @item.collection_id%>
-      <%d +=1%>
-      <%=link_to item_path(@item) do%>
-      <%=image_tag @item.picture.thumbnail%> 
-      <% end %>
-      <%end%>
-      <%end%>
-      <%if d==0%>
-      <strong>This collection is empty!</strong>
-      <%elsif d==1%>
-      <strong><br>You have <%=d%> item in this collection.</strong>
-      <%else%>
-      <strong><br>You have <%=d%> items in this collection.</strong>
-      <%end%>    
-      <%end%>
-
-    </div>
 </div>
+</div>
+
 
 
 
