@@ -30,6 +30,10 @@
   left: -55px;
 }
 
+.slick-slider { 
+  margin-bottom: 0px; 
+}
+
 .slider h3 {
   text-align: center;
 
@@ -37,10 +41,7 @@
 
 .slider.filtering1 img {
   margin: 0;
-  vertical-align: bottom;
+  /*vertical-align: bottom;*/
 }
 
-.main {
-  margin-top: 40px;
-}
 

@@ -7,10 +7,11 @@ class User < ActiveRecord::Base
 
   attr_accessor :password, :password_confirmation
 
-  validates :name, :email, presence: true
+  validates :name, :email, :last_name, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create
   validates :password, confirmation: true, if: :password
+
 
   def self.authenticate(email, password)
     user = User.find_by(email: email)
