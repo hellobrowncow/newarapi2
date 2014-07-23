@@ -51,6 +51,10 @@
 
 }
 
+.filtering {
+  z-index: 5;
+}
+
 .slider.filtering1 img {
   margin: 0;
   /*vertical-align: bottom;*/

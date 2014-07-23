@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     # @items = Item.where(collection_id: @collections.map {|c| c.id })
     @item = @items.find_by(params[:id])
+    @user = User.find_by(params[:id])
 
     respond_to do |format|
       format.html { } 
