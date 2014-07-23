@@ -21,7 +21,7 @@
         <div class="form-group">
           <div class="checkbox">
             <label for="item_favorite">
-              <%= f.check_box :favorite %> Favorite?
+              <%= f.check_box :favorite %> Favorite
             </label>
           </div>
         </div>
@@ -29,22 +29,24 @@
           <%= f.label :picture %>
           <%= f.file_field :picture, class: "form-control" %>
         </div>
-
+        <div class="form-group" >
         <fieldset>
-          <legend>Tags</legend>
-          <%= f.fields_for :tags do |builder| %>
-            <%= render "tag_fields", f: builder %>
-
-          <% end %>
+          <%= f.label :tags %>
           <div class="links">
-            <%= link_to_add_association "add tag", f, :tags %>
+            <%= link_to_add_association "Add Tag", f, :tags %>
           </div>
-            
+          <%= f.fields_for :tags do |builder| %>
+          <%= render "tag_fields", f: builder %>
+          <% end %>
         </fieldset>
-        <div class="form-group">
-          <%= f.submit class: "btn btn-warning" %>
-        </div>
+      </div>
+      <div class="form-group" >
+        <%= f.submit class: "btn btn-success" %>
+      </div>
       </fieldset>
-    <% end %>
+      <% end %>
+      <div class="button">
+        <%= button_to "Cancel", items_path, method: :get, class: "btn btn-warning", id: "cancel-button"  %>
+      </div>
   </div>
 </div>
