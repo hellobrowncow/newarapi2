@@ -107,12 +107,12 @@
                             Navigation <span class="caret"></span>
                           </a>
                   <ul class="dropdown-menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">FAQs</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Site Map</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Report a Problem</a></li>
+                      <li role="presentation"><%=link_to "Profile", user_path(current_user)%></li>
+                      <li role="presentation"><%=link_to "Wardrobes", collections_path%></li>
+                      <li role="presentation"><%=link_to "Viewer", items_path%></li>
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="help.html">Logout</a></li>
-                  </ul>
+                      <li role="presentation"><%=link_to "Logout", logout_path%></li>
+                  </ul> 
           </ul>
 
         </div>
