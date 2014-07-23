@@ -1,30 +1,35 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div> 
-      <div class='greeting'>
+    <div class="overlay"> 
+      <h2>
         Hello, <%=@current_user.name%>
-      </div>
-      <div class='link'>
+      </h2>
+      <p class="information">
+        <%=@current_user.name%> 
+        <%=@current_user.last_name%> 
+        <%=@current_user.email%> 
+      </p>
+      <p class='link'>
         <%= link_to "Edit Profile", edit_user_path %>
-      </div>
-      <div class='date'>
-        Today is: <br>
-        <%=raw Time.now.strftime("<i>%A, %B %d</i> <strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %><br>
-      </div>
+      </p>
+      <p class='date'>
+        Today is: 
+        <%=raw Time.now.strftime("<i>%A, %B %d</i> <strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
+      </p>
 
-      <div class='link'>
+      <p class='link'>
         <%= link_to "View Collections", collections_path %> |
         <%= link_to "Add Collection", new_collection_path %>
-      </div>
-      <div class='link'>
+      </p>
+      <p class='link'>
         <%if @collections.length > 0 %>
         <%= link_to "View Items", items_path %> |
         <%= link_to "Add Item", new_item_path %>
         <% end %>
-      </div>
-      <div class='link'>  <%= link_to "Logout", logout_path %>
-      </div>
+      </p>
+      <p class='link'>  <%= link_to "Logout", logout_path %>
+      </p>
     </div>
   </div>
 </div>

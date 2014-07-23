@@ -5,15 +5,18 @@ class ItemsController < ApplicationController
   def index
 
     @collections = current_user.collections
-    @items = Item.all
-    # @items = Item.where(collection_id: @collections.map {|c| c.id })
+    @items = if (params[:location])
+      Item.where(collection: @collections.find_by(location: params[:location]))
+    else
+      Item.where(collection_id: @collections.map {|c| c.id })
+    end
     @item = @items.find_by(params[:id])
     @user = User.find_by(params[:id])
 
-    respond_to do |format|
-      format.html { } 
-      format.json { render json: @items }
-    end
+    # respond_to do |format|
+    #   format.html { } 
+    #   format.json { render json: @items }
+    # end
   end
 
   def show

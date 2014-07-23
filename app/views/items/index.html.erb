@@ -1,52 +1,43 @@
-<div class="col-sm-8 col-md-9 col-md-offset-2 col-md-offset-3 main">
-      <div class="col-sm-9 col-md-10 main">
+
+<div class="row">
+<div class="col-sm-9 col-md-10 col-md-offset-1">
+    <div class="overlay">
+      <div class="collections pull-right">
+        Viewing: 
+        <%= link_to_unless(!params[:location], "All") do |location| %>
+          <span class="this-location"><%= location %></span>
+        <% end %>
+        <% @collections.each do |collection| %>
+          | <%= link_to_unless(params[:location] == collection.location, collection.location, 
+              { location: collection.location }) do |location|%>
+            <span class="this-location"><%= location %></span>
+          <% end %> 
+        <% end %>
+      </div>
       <h2>Closet</h2>
-    <%= link_to "Profile", user_path(@user) %>  |  
-    <%= link_to "Collections", collections_path%>
 
-    <div class="slider-button">
-      <div class="btn-group">
-        <button class="btn btn-info" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">AutoPlay Slides</a></button>
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="javascript:void(0)" class="button js-filter">Filter Slides</a></li>
-          <li class="divider"></li>
-          <li><a href="javascript:void(0)" class="button js-add-slide">Add Slides</a></li>
-          <li><a href="javascript:void(0)" class="button js-remove-slide">Remove Slides</a></li>
-        </ul>
-      </div>
-    </div>
-
-        <div class="slider filtering1">        <!-- First Carousel -->
-
-          <% c=0%>
-          <% for item in @items%>
-          <div><%c +=1%><br>
-          <center>
-          <%= link_to(image_tag(item.picture.carousel), item_path(item))%>
-          </center>
-          </h5></div>
-          <%end%>
-
-          <div><br><br><br><center><%= link_to "new", newitem_path %></center> </div>
+      <div class="slider-button">
+        <div class="btn-group">
+          <button class="btn btn-info" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">Start conveyor!</a></button>
         </div>
- 
-
-
-        <div class="slider filtering2">        <!-- Second Carousel -->
-          <div><img style="vertical-align: top;" src="/images/fixture-image7_2.jpg" ></div>
-          <div><img src="/images/fixture-image7_2.jpg" ></div>
-          <div><img src="/images/fixture-image7_2.jpg" ></div>
-          <div><img src="/images/fixture-image7_2.jpg" ></div>
-        </div>  
-      
-        <div class="filter">
-          <!-- <a href="javascript:void(0)" class="button js-filter">Filter Slides</a> -->
-        </div> 
       </div>
+
+      <div class="slider filtering1">        <!-- First Carousel -->
+
+        <% c=0%>
+        <% for item in @items%>
+        <div><%c +=1%><br>
+          <center>
+            <%= link_to(image_tag(item.picture.carousel), item_path(item))%>
+          </center>
+        </h5></div>
+        <%end%>
+
+        <div><br><br><br><center><%= link_to "new", newitem_path %></center> </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 

@@ -1,26 +1,35 @@
 
 <div class="row">
-  <div class="col-sm-8 col-md-8 col-md-offset-5 col-md-offset-4 main">
-    <p><%= image_tag @item.picture.carousel%></p>
-
-    <p>
-      <%= link_to "edit", edit_item_path(@item) %> |  
-      <%= link_to "delete", item_path(@item), method: :delete, confirm: "Really delete this item?" %>
-    </p>
-
-    <p>
-      <%= @item.color%>
-      <%= @item.clothing_type%>
-    </p>
-
-    <p>
-      <%= link_to "Items", items_path %> | 
-      <%= link_to "Collections", collections_path%>
-    </p>
-
-    <p>
-      <%= @item.tags.map {|t| t.name }.join("<br>").html_safe %>
-    </p>
+  <div class="col-md-2">
+   <%= link_to "Back to closet", items_path %>
+ </div>
+ <div class="col-md-8">
+  <div class="overlay">
+    <div class="row">
+      <div class="col-md-6">
+        <p><%= image_tag @item.picture.carousel%></p>
+      </div>
+      <div class="col-md-6">
+        <h1>
+          <%= @item.color%>
+          <%= @item.clothing_type%>
+        </h1>
+        <p>
+          <%= link_to "edit", edit_item_path(@item) %> |  
+          <%= link_to "delete", item_path(@item), method: :delete, confirm: "Really delete this item?" %>
+        </p>
+        <div>
+          <h2 class="tag-header">Tags</h2>
+          <div class="tags-box">
+            <%for tag in @item.tags do %>
+            <div class="tag">
+              <%=tag.name%>
+            </div>
+            <% end -%>          
+          </div>
+        </div>       
+      </div>
+    </div>
   </div>
 </div>
-
+</div>

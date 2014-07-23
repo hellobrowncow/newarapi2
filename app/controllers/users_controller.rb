@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :is_authenticated?, except: [:new, :create]
   # respond_to :json
-      layout 'splash', only: [:new, :create]
+      # layout 'splash', only: [:new, :create]
 
   def index
 

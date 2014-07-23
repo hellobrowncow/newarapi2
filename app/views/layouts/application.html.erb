@@ -7,8 +7,13 @@
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
 <body>
+  <% if current_user %>
     <div class="navbar  navbar-fixed-top navbar-inverse" role="navigation">  
     <!-- Top Menu Bar: "fixed" stays on top, "static" moves with content -->
     <!-- "navbar-inverse" inverts navbar bgcolor from normal bgcolor -->
@@ -114,7 +119,8 @@
    
       </div>
     </div>
-    <main class="main">
+    <% end %>
+    <main class="main container">
       <%= yield %>
     </main>
 
