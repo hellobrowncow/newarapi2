@@ -1,38 +1,31 @@
-<div class="col-sm-8 col-md-8 col-md-offset-3 col-md-offset-3 main">
+<%= render 'form' %>
 
-  <div class="col-sm-9 col-md-10 main">
+<div class="col-md-6 col-md-offset-3">
+<div class="overlay">
 
-  <%= render 'form' %>
-    <strong>
-      <p><%=link_to collection_path do %>
-        <%=@collection.user.name%> @<%=@collection.location%>
-      </strong>
-      <% end %></p>
-      Your items in this collection: <br>
-      <%e=0%>
-      <%for @item in @items%>
-      <%if @collection.id == @item.collection_id%>
-      <%e +=1%>
-      <%=link_to item_path(@item) do%>
-      <%=image_tag @item.picture.thumbnail%> 
+  <strong><p>
+    <%=@collection.user.name%> @<%=@collection.location%>
+  </p></strong>
+ 
+  Your items in this collection: <br>
+  <%e=0%>
+  <%for @item in @items%>
+  <%if @collection.id == @item.collection_id%>
+  <%e +=1%>
+  <%=link_to item_path(@item) do%>
+  <%=image_tag @item.picture.thumbnail%> 
 
-      <% end %>
-      <%end%>
-      <%end%>
-      <%if e==0%>
-      <strong>This collection is empty!</strong>
-      <%elsif e==1%>
-      <strong><br>You have <%=e%> item in this collection.</strong>
-      <%else%>
-      <strong><br>You have <%=e%> items in this collection.</strong>
-      <%end%>    
+  <% end %>
+  <%end%>
+  <%end%>
+  <%if e==0%>
+  <strong>This collection is empty!</strong>
+  <%elsif e==1%>
+  <strong><br>You have <%=e%> item in this collection.</strong>
+  <%else%>
+  <strong><br>You have <%=e%> items in this collection.</strong>
+  <%end%>    
 
-
-      <div class="links">
-        <%=link_to "Items", items_path%> | 
-        <%=link_to "Collections", collections_path%>
-      </div>
-
-    </div>
-  </div>
+</div>
+</div>
 
