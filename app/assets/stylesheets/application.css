@@ -13,6 +13,15 @@
   margin-top: 8px;
 }
 
+
+.main {
+  margin-top: 50px;
+}
+
+.slick-prev:before, .slick-next:before {
+  opacity: 0.43;
+}
+
 .slick-next {
   right: -55px;
 }
