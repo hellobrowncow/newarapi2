@@ -7,11 +7,13 @@
         <%= f.label :location %>
         <%= f.text_field :location, class: "form-control" %>
       </div>
-
       <div class="form-group">
-        <%= f.submit class: "btn btn-warning" %>
+        <%= f.submit class: "btn btn-success" %>
       </div>
     </fieldset>
     <% end %>
+    <div class="button">
+      <%= button_to "Cancel", collections_path, method: :get, class: "btn btn-warning", id: "cancel-button"  %>
+    </div>
   </div>
 </div>
