@@ -5,6 +5,18 @@
 
  */
 
+
+ body {
+  height: 100%;
+  background:url("../images/orange-wallpaper-fruits.jpg");
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position: center right; 
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: ;
+}
+
 .dropdown {
   margin-top: 4px;
 }
