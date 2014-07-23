@@ -18,8 +18,27 @@
   overflow-y: ;
 }
 
+.get-started {
+  width: 260px;
+  height: 50px;
+  font-size: 120%;
+}
+
+.splash-text {
+  text-align: center;
+}
+
+.splash-head {
+  color: white;;
+  text-align: ;
+  border-style: transparent; 
+  border-color:#FF0000;
+  background: #1F8DD6;
+  border-radius: 90px;
+}
+
 .login-overlay {
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 .overlay {
@@ -27,6 +46,7 @@
   color: white;
   font-size: 140%;
   padding: 10px;
+  border-radius: 30px;
 }
 
 .overlay a {
@@ -38,7 +58,8 @@
 }
 
 .overlay button a { color: white; }
-.overlay button a:hover { color: yellow; }
+.overlay button a:hover { color: grey; }
+
 
 .overlay legend {
   text-align: center;
@@ -67,6 +88,10 @@
 
 .main {
   margin-top: 60px;
+}
+
+.slick-prev, .slick-next {
+  top: 43%;
 }
 
 .slick-prev:before, .slick-next:before {
