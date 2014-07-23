@@ -1,7 +1,7 @@
 <div class="overlay">
   <%= form_for :user, url: login_url, html: { role: "form", id: "loginform" } do |f| %>
     <fieldset>
-      <legend>    Please sign in</legend>
+      <legend>Please sign in</legend>
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address", autofocus: true, required: true %>

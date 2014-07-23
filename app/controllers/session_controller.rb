@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   before_action :is_authenticated?, only: [ :destroy ]
-  layout 'splash'
+  # layout 'splash'
 
   def new
     redirect_to root_url if current_user
