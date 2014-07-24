@@ -24,13 +24,31 @@ users = User.create([
 collections = Collection.create([
   {
     id: SecureRandom.uuid,
+    location: "Hong Kong",
+    user: users[0] 
+  },
+  {
+
+    id:SecureRandom.uuid,
     location: "London",
     user: users[0] 
   },
   {
 
     id:SecureRandom.uuid,
-    location: "Hong Kong",
+    location: "New York",
+    user: users[0] 
+  },
+  {
+
+    id:SecureRandom.uuid,
+    location: "Sydney",
+    user: users[0] 
+  },
+  {
+
+    id:SecureRandom.uuid,
+    location: "San Francisco",
     user: users[0] 
   }
 ])
