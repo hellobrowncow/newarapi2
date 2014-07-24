@@ -1,4 +1,9 @@
 <%= render 'form' %>
+<div class="col-md-6 col-md-offset-4">
+  <div class="form-group">
+    <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
+  </div>
+</div>
 
 <div class="col-md-6 col-md-offset-3">
 <div class="overlay">

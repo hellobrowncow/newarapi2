@@ -7,7 +7,7 @@
       </h2>
       <p class="information">
         <%=@current_user.name%> 
-        <%=@current_user.last_name%> 
+        <%=@current_user.last_name%> <br>
         <%=@current_user.email%> 
       </p>
       <p class='link'>
@@ -15,7 +15,7 @@
       </p>
       <p class='date'>
         Today is: 
-        <%=raw Time.now.strftime("<i>%A, %B %d</i> <strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
+        <%=raw Time.now.strftime("<i>%A, %B %d</i> <br><strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
       </p>
 
       <p class='link'>

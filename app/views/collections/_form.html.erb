@@ -14,11 +14,6 @@
         <div class="button">
           <%= button_to "Cancel", collections_path, method: :get, class: "btn btn-warning", id: "cancel-button"  %>
         </div>
-        <div class="col-md-6 col-md-offset-4">
-          <div class="form-group">
-            <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
-          </div>
-        </div>
       </fieldset>
       <% end %>
     </div>
