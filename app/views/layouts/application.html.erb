@@ -37,83 +37,39 @@
         <div class="nav navbar-collapse collapse">    
         <!-- Collects and Controls Right Navigation for Collapsible Hamburger -->
 
-<!-- <div class="row"> -->
-  <div class="nav col-sm-4 pull-right">
-    <div class="input-group">
-      <div class="input-group-btn">
-
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search A Wardrobe <span class="caret"></span></button>
-
-        <ul class="dropdown-menu">
-          <li>
-            <% if current_user.collections.length == 0 %>
-            <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
-            <% end %>
-          </li>
-          <%  current_user.collections.each do |collection| %>
-          <li>
-            <%= link_to collection_path(collection) do %>
-            <span class="badge pull-right"><%= collection.items.length %></span>
-            <%= collection.location %>
-            <% end %>
-          </li>
-          <% end %>
-        </ul>
-      </div><!-- /btn-group -->
-
-<!-- Search Menu -->
-      <div class="ui-widget">
-        <form class="navform" action="items#search" method="get">
-          <input id="tags" size="50" type="text" class="form-control" placeholder="Find my threads">
-        </form> 
-      </div>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-<!--   </div> -->
-
-<!--           <form class="navbar-form navbar-right">  Deleted navbar-right
-  <input class="form-control" placeholder="Search My Clothing..." aligntype="search" >
-</form> -->
-
-
-          <ul class="nav  nav-pills "> <!-- navbar-nav navbar-right-->
-              <li class="dropdown">    
-
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                    My Wardrobes <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li>
-                        <% if current_user.collections.length == 0 %>
-                         <center><strong><%=link_to "Add a Location", new_collection_path %></strong></center>
-                        <% end %>
-                      </li>
-                      <% current_user.collections.each do |collection| %>
-                      <li>
-                          <%= link_to collection_path(collection) do %>
-                            <span class="badge pull-right"><%= collection.items.length %></span>
-                            <%= collection.location %>
-                          <% end %>
-                      </li>
-                      <% end %>
-                      <li role="presentation" class="divider"></li>
-                      <li><a href="#">
-                          <span class="badge pull-right">0</span>
-                          Travel Bag</a></li>
-                  </ul>
-
-              <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                            Navigation <span class="caret"></span>
-                          </a>
-                  <ul class="dropdown-menu">
-                      <li role="presentation"><%=link_to "Profile", user_path(current_user)%></li>
-                      <li role="presentation"><%=link_to "My Places", collections_path%></li>
-                      <li role="presentation"><%=link_to "Wardrobe", items_path%></li>
-                      <li role="presentation" class="divider"></li>
-                      <li role="presentation"><%=link_to "Logout", logout_path%></li>
-                  </ul> 
+          <ul class="nav navbar-nav">
+<!--             <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li> -->
+            <li role="presentation"><%=link_to "Profile", user_path(current_user)%></li>
+            <li role="presentation"><%=link_to "My Places", collections_path%></li>
+            <li role="presentation"><%=link_to "Wardrobe", items_path%></li>
+            <li role="presentation" class="divider"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdowfn-toggle" data-toggle="dropdown">View Location <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <% if current_user.collections.length == 0 %>
+                  <li>
+                    <%=link_to "Add a Location", new_collection_path %>
+                  </li>
+                <% end %>
+                <% current_user.collections.each do |collection| %>
+                  <li>
+                    <%= link_to collection_path(collection) do %>
+                      <span class="badge pull-right"><%= collection.items.length %></span>
+                      <%= collection.location %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li role="presentation" class="pull-right"><%=link_to "Logout", logout_path%></li>
+          </ul>
+
+
+
 
         </div>
    

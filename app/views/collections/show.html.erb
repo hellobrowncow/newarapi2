@@ -1,36 +1,35 @@
-<%= render 'form' %>
-<div class="col-md-6 col-md-offset-4">
-  <div class="form-group">
-    <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
+<div class="col-md-8 col-md-offset-2">
+  <div class="overlay">
+    <h1>
+      My items in <%=@collection.location%>:
+    </h1>
+
+    <div class="collection-items">
+      <%e=0%>
+      <%for @item in @items%>
+      <%if @collection.id == @item.collection_id%>
+      <%e +=1%>
+      <%=link_to item_path(@item) do%>
+      <%=image_tag @item.picture.thumbnail%> 
+
+      <% end %>
+      <%end%>
+      <%end%>
+      <%if e==0%>
+      <div class="collection-size">This collection is empty!</div>
+      <%elsif e==1%>
+      <div class="collection-size">You have <%=e%> item in this collection.</div>
+      <%else%>
+      <div class="collection-size">You have <%=e%> items in this collection.</div>
+      <%end%>    
+    </div>
   </div>
 </div>
 
-<div class="col-md-6 col-md-offset-3">
-<div class="overlay">
-
-  <strong><p>
-    <%=@collection.user.name%> @<%=@collection.location%>
-  </p></strong>
- 
-  Your items in this collection: <br>
-  <%e=0%>
-  <%for @item in @items%>
-  <%if @collection.id == @item.collection_id%>
-  <%e +=1%>
-  <%=link_to item_path(@item) do%>
-  <%=image_tag @item.picture.thumbnail%> 
-
-  <% end %>
-  <%end%>
-  <%end%>
-  <%if e==0%>
-  <strong>This collection is empty!</strong>
-  <%elsif e==1%>
-  <strong><br>You have <%=e%> item in this collection.</strong>
-  <%else%>
-  <strong><br>You have <%=e%> items in this collection.</strong>
-  <%end%>    
-
-</div>
+<%= render 'form' %>
+<div class="col-md-6 col-md-offset-8">
+  <div class="form-group">
+    <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
+  </div>
 </div>
 

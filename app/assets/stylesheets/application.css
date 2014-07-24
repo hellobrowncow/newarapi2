@@ -16,6 +16,10 @@
   background-color: transparent;
   overflow-x: hidden;
   overflow-y: ;
+} 
+
+.collection-items{
+  margin: 0px 0px 0px 100px;
 }
 
 .get-started {
@@ -79,8 +83,12 @@
  padding: 10px; 
 }
 
-.dropdown {
-  margin-top: 4px;
+.dropdown-toggle {
+
+}
+
+.nav-pills {
+  top: 0px;
 }
 
 .input-group {
