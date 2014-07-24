@@ -21,8 +21,11 @@
 
             <h2 class="subsplash-head"><p>Your clothes online. . .</p></h2>
 <div class="col-md-8 col-md-offset-2">
-    <p>
+    <p> 
+        <% if current_user %>
+        <%else%>
         <%= button_to "Get Started", new_user_path, method: :get, class: "btn btn-success get-started", id: "new_user-button"%>
+        <% end %>
     </p>
 </div>
         </div>
