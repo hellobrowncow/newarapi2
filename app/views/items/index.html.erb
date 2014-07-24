@@ -2,6 +2,7 @@
 <div class="row">
 <div class="col-sm-9 col-md-10 col-md-offset-1">
     <div class="overlay">
+     <%= link_to "Add New Clothing", newitem_path %>
       <div class="collections pull-right">
         Viewing: 
         <%= link_to_unless(!params[:location], "All") do |location| %>

@@ -1,5 +1,8 @@
 <div class="col-md-8 col-md-offset-2">
   <div class="overlay">
+    <div class="pull-right">
+      <%=link_to "Add New Clothing", new_item_path%> | <%=link_to "Wardrobe", items_path%>
+    </div>
     <h1>
       My items in <%=@collection.location%>:
     </h1>
@@ -27,9 +30,13 @@
 </div>
 
 <%= render 'form' %>
-<div class="col-md-6 col-md-offset-8">
-  <div class="form-group">
-    <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
+<div class="col-md-6 col-md-offset-3">
+    <div class="button-group">
+      <div class="col-md-5 col-md-offset-3">
+  <div class="overlay">
+        <%= button_to "Delete this Location", collection_path(@collection), method: :delete, confirm: "Really delete this Location?", class: "btn btn-danger", id: "delete_location-button" %>
+      </div>
+    </div>
   </div>
 </div>
 

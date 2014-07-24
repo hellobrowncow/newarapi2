@@ -18,6 +18,14 @@
   overflow-y: ;
 } 
 
+.my-places {
+  text-align: center;
+}
+
+.btn {
+  font-size: 16px;
+}
+
 .collection-items{
   margin: 0px 0px 0px 100px;
 }

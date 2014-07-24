@@ -2,6 +2,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="overlay"> 
+      <div class='link pull-right'>  <%= link_to "Logout", logout_path %>
+      </div>
       <h2>
         Hello, <%=@current_user.name%>
       </h2>
@@ -17,18 +19,11 @@
         Today is: 
         <%=raw Time.now.strftime("<i>%A, %B %d</i> <br><strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
       </p>
-
       <p class='link'>
-        <%= link_to "View Collections", collections_path %> |
         <%= link_to "Add Collection", new_collection_path %>
-      </p>
-      <p class='link'>
         <%if @collections.length > 0 %>
-        <%= link_to "View Items", items_path %> |
-        <%= link_to "Add Item", new_item_path %>
+        <%= link_to "| Add New Clothing", new_item_path %>
         <% end %>
-      </p>
-      <p class='link'>  <%= link_to "Logout", logout_path %>
       </p>
     </div>
   </div>
