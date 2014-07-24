@@ -21,7 +21,7 @@
       </p>
       <p class='link'>
         <%= link_to "Add a Location", new_collection_path %>
-        <%if @collections.length == 0 %>
+        <%if current_user.collections.length > 0 %>
         <%= link_to "| Add New Clothing", new_item_path %>
         <% end %>
       </p>
