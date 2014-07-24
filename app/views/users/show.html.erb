@@ -20,8 +20,8 @@
         <%=raw Time.now.strftime("<i>%A, %B %d</i> <br><strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
       </p>
       <p class='link'>
-        <%= link_to "Add Collection", new_collection_path %>
-        <%if @collections.length > 0 %>
+        <%= link_to "Add a Location", new_collection_path %>
+        <%if @collections.length == 0 %>
         <%= link_to "| Add New Clothing", new_item_path %>
         <% end %>
       </p>

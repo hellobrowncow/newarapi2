@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     @collections = current_user.collections
     @item = Item.new
     @item.tags.build
+
   end
 
   def create
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to 'items_path', notice: 'Item was successfully created.' }
+        format.html { redirect_to items_path, notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }

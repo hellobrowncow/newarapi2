@@ -12,37 +12,38 @@
   <script src="//cdn.jsdelivr.net/kwicks/1.5.1/jquery.kwicks-1.5.1.js"></script>
 
 
-  <!-- <div class="col-md-8 col-md-offset-2"> -->
-    <!-- <div class="col-sm-8 col-md-11 col-md-offset-1 main"> -->
-      <div class="col-sm-9 col-md-8 col-md-offset-2 overlay">
+    <div class="col-sm-9 col-md-8 col-md-offset-2 overlay">
 
-  <%=link_to "Add a Location", new_collection_path %>
-    <h1 class="my-places">My Places</h1>
+      <%=link_to "Add a Location", new_collection_path %>
+      <%if @collections.length > 0 %>
+      <%= link_to "| Add New Clothing", new_item_path %>
+      <% end %>
+      <h1 class="my-places">My Places</h1>
 
-    <div id="container">
-      <!-- <h2>Wardrobes</h2> -->
-      <div class="flexslider ">
-        <ul class="slides">
+      <div id="container">
+        <!-- <h2>Wardrobes</h2> -->
+        <div class="flexslider ">
+          <ul class="slides">
 
-          <% fsk=0%>
-          <% for @collection in @collections%>
-          <% fsk +=1%>
-          <% if fsk <= 5 %>
-          <li> 
-            <%=link_to(image_tag("locations/hongkong1.jpg"), collection_path(@collection), method: :get) %> 
-            <div class="flex-caption">
-              <h3><%= link_to collection_path(@collection) do%><%=@collection.location %> <% end -%></h3>
-              <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
-            </div>
-          </li>
-          <% end %>
-          <% end %>
-        </ul>
+            <% fsk=0%>
+            <% for @collection in @collections%>
+            <% fsk +=1%>
+            <% if fsk <= 5 %>
+            <li> 
+              <%=link_to(image_tag("locations/hongkong1.jpg"), collection_path(@collection), method: :get) %> 
+              <div class="flex-caption">
+                <h3><%= link_to collection_path(@collection) do%><%=@collection.location %> <% end -%></h3>
+                <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis porttitor massa eget pretium. Mauris vel erat sem, id tempor est. Pellentesque lobortis iaculis massa quis auctor.</p> -->
+              </div>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
+      <span id="responsiveFlag"></span>
     </div>
-    <span id="responsiveFlag"></span>
-</div>
-</div>
+  </div>
 
 
 
