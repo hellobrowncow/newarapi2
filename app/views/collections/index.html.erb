@@ -15,7 +15,7 @@
     <div class="col-sm-9 col-md-8 col-md-offset-2 overlay">
 
       <%=link_to "Add a Location", new_collection_path %>
-      <%if @collections.length > 0 %>
+      <%if current_user.collections.length > 0 %>
       <%= link_to "| Add New Clothing", new_item_path %>
       <% end %>
       <h1 class="my-places">My Places</h1>
