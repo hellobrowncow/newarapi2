@@ -1,12 +1,18 @@
 User.destroy_all
 Collection.destroy_all
 
+item = Item.create!(name: "McDonald's")
+src = File.join(Rails.root, "db/images/camo.jpg")
+src_file = File.new(src)
+restaurant.logo = src_file
+restaurant.save!
+
 users = User.create([
   {
     id: SecureRandom.uuid,
     name: "Albert",
     last_name: "Einstein",
-    email: "al_ein@google.com",
+    email: "albert@google.com",
     password: "1234",
     password_confirmation: "1234"
   },
@@ -89,9 +95,9 @@ items = Item.create([
   },
   {
     id: SecureRandom.uuid,
-    color: "green",
+    color: "blue",
     favorite: false,
-    clothing_type: "t-shirt",
+    clothing_type: "jeans",
     picture: open("http://media.topshop.com/wcsstore/TopShop/images/catalog/02G27EMDT_large.jpg"),
     collection: collections[0]
   },
@@ -171,7 +177,7 @@ items = Item.create([
   },
   {
     id: SecureRandom.uuid,
-    color: "light gree",
+    color: "light green",
     favorite: false,
     clothing_type: "shirt",
     picture: open("https://www.hivispricesaver.com/images/g2410.jpg"),
@@ -247,6 +253,22 @@ items = Item.create([
     favorite: false,
     clothing_type: "coat",
     picture: open("http://www.coatpant.com/wp-content/uploads/2013/02/M-65-Field-Jacket.jpg"),
+    collection: collections[0]
+  },
+  {
+    id: SecureRandom.uuid,
+    color: "black",
+    favorite: false,
+    clothing_type: "tank top",
+    picture: open("http://cdn.champbell.net/images/garbochic.files.wordpress.com/2011/03/black-tank-top.jpg"),
+    collection: collections[0]
+  },
+  {
+    id: SecureRandom.uuid,
+    color: "gray",
+    favorite: false,
+    clothing_type: "tank top",
+    picture: open("http://www.beertees.com/media/catalog/product/cache/8/image/5e06319eda06f020e43594a9c230972d/c/o/coo-0166/Coors-Light-Coors-Light-Mens-Tank-Top-Grey-Logo-Shirt.jpg"),
     collection: collections[0]
   }
 
