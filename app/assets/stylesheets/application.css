@@ -19,6 +19,11 @@
   overflow-y: ;
 } 
 
+.newuser-note {
+font-family: "Times New Roman", Georgia, Serif; 
+font-style: italic;
+}
+
 .flex-direction-nav a {
   z-index: 2;
 }
