@@ -41,6 +41,14 @@
           </ul>
         </div>
       </div>
+            <% fsk=0%>
+            <% for @collection in @collections%>
+            <% fsk +=1%>
+                  <% if fsk > 5%>
+                  <%= link_to collection_path(@collection) do%><%=@collection.location %> 
+                  <% end %> | 
+            <% end %> 
+            <% end %> 
       <span id="responsiveFlag"></span>
     </div>
   </div>
