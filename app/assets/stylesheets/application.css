@@ -130,6 +130,24 @@ font-style: italic;
   opacity: 0.43;
 }
 
+.slick-prev:hover:before, .slick-next:hover:before{
+  opacity: 0.80;
+  -webkit-transition: opacity 2s ease linear;
+  -moz-transition: opacity 2s ease linear;
+  -ms-transition: opacity 2s ease linear;
+  -o-transition: opacity 2s ease linear;
+   transition: opacity 2s ease linear;
+}
+
+.slick-prev:active:before, .slick-next:active:before{
+  opacity: 1.0;
+  -webkit-transition: opacity 2s ease linear;
+  -moz-transition: opacity 2s ease linear;
+  -ms-transition: opacity 2s ease linear;
+  -o-transition: opacity 2s ease linear;
+   transition: opacity 2s ease linear;
+}
+
 .slick-next {
   right: -55px;
 }
