@@ -2,6 +2,6 @@ object false
 
 child @items do
 
-  attributes :id
+  attributes :id, :color, :clothing_type, :tags, :picture, :rating
 
 end

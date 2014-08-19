@@ -54,19 +54,6 @@ collections = Collection.create([
   }
 ])
 
-# item = Item.create!([
-#     id: SecureRandom.uuid,
-#     color: "TEST COLOR",
-#     favorite: false,
-#     clothing_type: "TEST t-shirt",
-#     picture: File.open(File.join(Rails.root, '/public/images/camo.jpg')),
-#     collection: collections[0]])
-
-# src = File.join(Rails.root, "public/images/camo.jpg")
-# src_file = File.new(src)
-# item.picture = src_file
-# item.save!
-
 items = Item.create([
   {
     id: SecureRandom.uuid,

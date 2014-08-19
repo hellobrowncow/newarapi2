@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:collection_id, :color, :clothing_type, :favorite, :picture, tags_attributes: [:name, :id, :_destroy])
+    params.require(:item).permit(:collection_id, :color, :clothing_type, :favorite, :picture, :remove_picture, tags_attributes: [:name, :id, :_destroy])
   end
 
 end
