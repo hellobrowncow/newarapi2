@@ -4,7 +4,8 @@ class Item < ActiveRecord::Base
   has_many :tags, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
-  validates :color, :clothing_type, presence: true
+  validates :color, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, presence: true
+  validates :clothing_type, presence: true
 
   accepts_nested_attributes_for :tags, allow_destroy: true, reject_if: :all_blank
 
