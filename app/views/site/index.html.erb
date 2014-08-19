@@ -81,11 +81,11 @@
                     <% if current_user %>
                     You're Cool!!
                     <%else%>
-                    <%=link_to "Start Now", new_user_path%>   
+                    <%=link_to "Start Now ! !", new_user_path%>   
                     <% end %>
                 </h3>
-                <p>
-                </p>
+
+
             </div>
         </div>
     </div>
@@ -103,4 +103,16 @@
     <%= render partial: "layouts/login" unless current_user %>
 
   </div>
+                <% if current_user %>
+                 <div class="col-md-4 overlay current_user-root">
+                   <ul>
+                    <li><p><%=link_to "My Profile", user_path(current_user)%> </p></li>
+                    <li><p><%= link_to "Add a Location", new_collection_path %> </p></li>
+                    <%if current_user.collections.length > 0 %>
+                    <li><%= link_to "Add New Clothing", new_item_path %></li>
+                   </ul>
+                </div>
+                    <% end %>  
+                <%else%>
+                <% end %>
 </div>
