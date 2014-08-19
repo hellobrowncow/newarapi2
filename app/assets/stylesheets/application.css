@@ -73,7 +73,7 @@
 }
 
 .overlay a:hover {
-  color: hsla(160, 100%, 40%, 1);
+  color: hsla(208, 100%, 75%, 1);
 }
 
 .overlay button a { color: white; }
