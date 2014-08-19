@@ -70,7 +70,7 @@ items = Item.create([
     clothing_type: "t-shirt",
     picture: File.open(File.join(Rails.root, '/public/images/camo.jpg')),
     collection: collections[0]
-  },
+  }
 
 
 ])
