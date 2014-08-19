@@ -3,15 +3,15 @@ class SessionController < ApplicationController
   # layout 'splash'
 
   def new
-    redirect_to root_url if current_user
+    redirect_to redirect_to user_path(user.id) if current_user
   end
 
   def create
     puts "params", params
     if user = User.authenticate(params[:user][:email], params[:user][:password])
       session[:user_id] = user.id
-      # redirect_to user_path(user.id)
-      redirect_to root_url
+      redirect_to user_path(user.id)
+      # redirect_to root_url
 
     else
       flash.now[:error] = "Unable to sign you in. Please try again."
