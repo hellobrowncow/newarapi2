@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :collection
+
   has_many :tags, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
