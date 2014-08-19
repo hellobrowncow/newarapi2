@@ -13,18 +13,20 @@
     </div>
 </div> -->
 
+<div class="overlay">
+
 <div class="splash-container">
     <div class="splash">
         <div class="col-md-8 col-md-offset-1 splash-text">
 
             <h1 class="splash-head"><p>C L O S I F Y</p></h1>
 
-            <h2 class="subsplash-head"><p>Your clothes online. . .</p></h2>
+            <h2 class="subsplash-head"><p>. . . your clothes online . . .</p></h2>
 <div class="col-md-8 col-md-offset-2">
     <p> 
         <% if current_user %>
         <%else%>
-        <%= button_to "Get Started", new_user_path, method: :get, class: "btn btn-success get-started", id: "new_user-button"%>
+        <%= button_to "Get Started", new_user_path, method: :get, class: "btn btn-info get-started", id: "new_user-button"%>
         <% end %>
     </p>
 </div>
@@ -33,14 +35,15 @@
 </div>
 
 
-    <div class="col-md-offset-2">
-        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-3-5">
+    <div class="col-md-offset-1">
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-3-4">
 
-            <h2 class="content-head content-head-ribbon">Bringing your clothes closer to you.</h2>
-
-            <p>
-             Closify brings to you the best solution for tracking your global closet! Use Closify to organize your wardrobe by location or to plan your outfits away from home!
-            </p>
+            <h2 class="content-head content-head-ribbon"> We Bring Your Clothes Closer To You.</h2>
+        <ul>
+            <li>Always busy. . .???</li>
+            <li>Forgot where you put that lucky shirt, or whether you packed that stunning dress?? </li>
+        </ul>
+              Whether you're away from home, call the world your home or just feel like looking your good. : ) Closify helps you organize your wardrobe.  So relax ! ! !  C L O S I F Y 
         </div>
     </div>
 
@@ -75,7 +78,7 @@
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
                     <i class="fa fa-rocket"></i>
-                    Start Now
+                    <%=link_to "Start Now", new_user_path%>   
                 </h3>
                 <p>
                 </p>
@@ -87,6 +90,8 @@
 
 </div>
 
+
+</div>
 
 <!-- End Splash -->
   </div>
