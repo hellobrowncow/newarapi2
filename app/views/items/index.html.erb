@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col-sm-9 col-md-10 col-md-offset-1">
     <div class="overlay">
-     <%= link_to "Add New Clothing", newitem_path %>
+     <%= link_to newitem_path do%><span class="glyphicon glyphicon-plus"></span>Add New Clothing<% end -%>
       <div class="collections pull-right">
         Viewing: 
         <%= link_to_unless(!params[:location], "All") do |location| %>
@@ -22,7 +22,7 @@
           <div class="btn-group">
             <% if @items.length < 3 %>
             <%else%>
-              <button class="btn btn-info" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">Auto-Browsing ! !</a></button>
+              <button class="btn btn-info js-pause" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">Auto-Browse is OFF</a></button>
             <% end %>
           </div>
         </div>
@@ -141,11 +141,11 @@ $('.js-remove-slide').on('click', function(){
 $('.js-pause').on('click', function(){
   if(pause === false) {
     $('.filtering1').slickPause();
-    $(this).text('Auto-Browse ON');
+    $(this).text('Auto-Browse is OFF');
     pause = true;
   } else {
     $('.filtering1').slickPlay();
-    $(this).text('Auto-Browse ON');
+    $(this).text('Auto-Browse is ON');
     pause = false;
   }
 });
