@@ -4,7 +4,7 @@
       <%=link_to "Add New Clothing", new_item_path%> | <%=link_to "Wardrobe", items_path%>
     </div>
     <h1>
-      My items in <%=@collection.location%>:
+      My Clothes in <br><%=@collection.location%>:
     </h1>
 
     <div class="collection-items">
@@ -19,11 +19,11 @@
       <%end%>
       <%end%>
       <%if e==0%>
-      <div class="collection-size">This collection is empty!</div>
+      <div class="collection-size"><h3>This location is empty ! !</h3></div>
       <%elsif e==1%>
-      <div class="collection-size">You have <%=e%> item in this collection.</div>
+      <div class="collection-size"><h3>You have <%=e%> item at this location.</h3></div>
       <%else%>
-      <div class="collection-size">You have <%=e%> items in this collection.</div>
+      <div class="collection-size"><h3>You have <%=e%> items at this location.</h3></div>
       <%end%>    
     </div>
   </div>
