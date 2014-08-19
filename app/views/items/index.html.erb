@@ -20,8 +20,10 @@
       <h2>Wardrobe</h2>
         <div class="slider-button">
           <div class="btn-group">
-
-            <button class="btn btn-info" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">Continuous View !!</a></button>
+            <% if @items.length < 3 %>
+            <%else%>
+              <button class="btn btn-info" type="button" id="slide button"><a href="javascript:void(0)" class="button js-pause">Auto-Browsing ! !</a></button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -139,11 +141,11 @@ $('.js-remove-slide').on('click', function(){
 $('.js-pause').on('click', function(){
   if(pause === false) {
     $('.filtering1').slickPause();
-    $(this).text('Play');
+    $(this).text('Auto-Browse ON');
     pause = true;
   } else {
     $('.filtering1').slickPlay();
-    $(this).text('Pause');
+    $(this).text('Auto-Browse ON');
     pause = false;
   }
 });
