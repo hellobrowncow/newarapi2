@@ -9,7 +9,8 @@
 
  body {
   height: 100%;
-  background:url("../images/orange-wallpaper-fruits.jpg");
+/*  background:url("../images/orange-wallpaper-fruits.jpg");*/
+  background:url("../images/closet-a.jpg");
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position: center right; 
@@ -17,6 +18,10 @@
   overflow-x: hidden;
   overflow-y: ;
 } 
+
+.flex-direction-nav a {
+  z-index: 2;
+}
 
 .my-places {
   text-align: center;
