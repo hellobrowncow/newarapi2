@@ -1,11 +1,6 @@
 User.destroy_all
 Collection.destroy_all
 
-item = Item.create!(name: "McDonald's")
-src = File.join(Rails.root, "db/images/camo.jpg")
-src_file = File.new(src)
-restaurant.logo = src_file
-restaurant.save!
 
 users = User.create([
   {
@@ -193,14 +188,6 @@ items = Item.create([
   },
   {
     id: SecureRandom.uuid,
-    color: "camoflage",
-    favorite: false,
-    clothing_type: "pants",
-    picture: open("http://cdn.champbell.net/images/www.motorhelmets.com/media/products/agv-sport/2010-07/apparel-agv-sport-street-pants-men-kevlar-cargo-assault-camo.jpg"),
-    collection: collections[0]
-  },
-  {
-    id: SecureRandom.uuid,
     color: "brown",
     favorite: false,
     clothing_type: "pants",
@@ -253,14 +240,6 @@ items = Item.create([
     favorite: false,
     clothing_type: "coat",
     picture: open("http://www.coatpant.com/wp-content/uploads/2013/02/M-65-Field-Jacket.jpg"),
-    collection: collections[0]
-  },
-  {
-    id: SecureRandom.uuid,
-    color: "black",
-    favorite: false,
-    clothing_type: "tank top",
-    picture: open("http://cdn.champbell.net/images/garbochic.files.wordpress.com/2011/03/black-tank-top.jpg"),
     collection: collections[0]
   },
   {
