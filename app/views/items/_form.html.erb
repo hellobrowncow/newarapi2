@@ -38,7 +38,10 @@
                 </div>
               </fieldset>
             </div>
-              <%=link_to "Cancel", items_path%>
+              <%=link_to items_path do%>
+              <span class="glyphicon glyphicon-remove"></span>
+               Cancel
+               <% end %>
             <div class="form-group pull-right" >
               <%= f.submit class: "btn btn-success" %>
             </div>
