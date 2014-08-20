@@ -14,10 +14,16 @@
 
     <div class="col-sm-9 col-md-8 col-md-offset-2 overlay">
 
-      <%=link_to "Add a Location", new_collection_path %>
-      <%if current_user.collections.length > 0 %>
-      <%= link_to "| Add New Clothing", new_item_path %>
+      <%= link_to new_collection_path do%>
+        <span class="glyphicon glyphicon-plus"></span>
+        Add a Location 
       <% end %>
+      <%if current_user.collections.length > 0 %> | 
+        <%= link_to new_item_path do%>
+        <span class="glyphicon glyphicon-plus"></span> 
+        Add New Clothing <% end %>
+      <% end %>
+
       <h1 class="my-places">My Places</h1>
 
       <div id="container">
