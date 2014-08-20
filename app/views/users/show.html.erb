@@ -2,7 +2,9 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="overlay"> 
-      <div class='link pull-right'>  <%= link_to "Logout", logout_path %>
+      <div class='link pull-right'>  
+      <%= link_to logout_path do %>Logout <span class="glyphicon glyphicon-off"></span>
+      <% end %>
       </div>
       <h2>
         Hello, <%=@current_user.name%>
