@@ -19,6 +19,20 @@
   overflow-y: ;
 } 
 
+.checkbox label {
+  color: hsla(208, 100%, 90%, 1);
+}
+
+.checkbox label:hover {
+  color: hsla(208, 100%, 75%, 1);
+  text-decoration: underline;
+}
+
+.checkbox input[type=checkbox] {
+  font-size: 100%;
+  position: relative;
+}
+
 .newuser-note {
 font-family: "Times New Roman", Georgia, Serif; 
 font-style: italic;
