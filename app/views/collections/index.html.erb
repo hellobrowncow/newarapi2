@@ -50,8 +50,10 @@
             <% fsk=0%>
             <% for @collection in @collections%>
             <% fsk +=1%>
-                  <% if fsk > 5%>
-                  <%= link_to collection_path(@collection) do%><%=@collection.location %> 
+                  <% if fsk > 5%>|
+                  <%= link_to collection_path(@collection) do%>
+                    <span class="glyphicon glyphicon-plane"></span>
+                    <%=@collection.location %> 
                   <% end %> | 
             <% end %> 
             <% end %> 
