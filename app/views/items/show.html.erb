@@ -14,8 +14,14 @@
             <%= @item.clothing_type%>
           </h1>
           <p>
-            <%= link_to "edit", edit_item_path(@item) %> |  
-            <%= link_to "delete", item_path(@item), method: :delete, confirm: "Really delete this item?" %>
+            <%= link_to edit_item_path(@item) do%>
+              <span class="glyphicon glyphicon-pencil"></span> 
+              Edit
+            <% end %> | 
+            <%= link_to item_path(@item), method: :delete, confirm: "Really delete this item?" do%>
+              <span class="glyphicon glyphicon-remove"></span> 
+              Delete
+            <% end %> 
           </p>
           <div>
             <h2 class="tag-header">Tags</h2>
