@@ -29,8 +29,10 @@
             <div class="tags-box col-md-6">
               <%for tag in @item.tags do %> 
                 <div class="tag">
-                  <span class="glyphicon glyphicon-tag"></span>
-                  <%=tag.name%> 
+                  <a href="#">  <!-- link stub for future search functionality -->
+                    <span class="glyphicon glyphicon-tag"></span>
+                    <%=tag.name%> 
+                  </a>
                 </div>
               <% end %>          
             </div>
