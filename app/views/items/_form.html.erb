@@ -34,12 +34,12 @@
                 <%= render "tag_fields", f: builder %>
                 <% end %>
                 <div class="links">    
-                  <%= link_to_add_association '<i class="glyphicon glyphicon-plus"></i>'.html_safe, f, :tags %>
+                  <%= link_to_add_association '<i class="glyphicon glyphicon-plus-sign"></i>'.html_safe, f, :tags %>
                 </div>
               </fieldset>
             </div>
               <%=link_to items_path do%>
-              <span class="glyphicon glyphicon-remove"></span>
+              <span class="glyphicon glyphicon-remove-circle"></span>
                Cancel
                <% end %>
             <div class="form-group pull-right" >
