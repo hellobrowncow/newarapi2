@@ -3,7 +3,7 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="overlay"> 
       <div class='link pull-right'>  
-      <%= link_to logout_path do %>Logout <span class="glyphicon glyphicon-off"></span>
+      <%= link_to logout_path do %>Log Out <span class="glyphicon glyphicon-off"></span>
       <% end %>
       </div>
       <h2>
@@ -15,16 +15,19 @@
         Email: <%=@current_user.email%> 
       </p>
       <p class='link'>
-        <%= link_to "Edit Profile", edit_user_path %>
+        <%= link_to edit_user_path do%><span class="glyphicon glyphicon-pencil"></span>
+       Edit Profile <% end %>
       </p>
       <p class='date'>
         Today is: 
         <%=raw Time.now.strftime("<i>%A, %B %d</i> <br><strong>(%d/%m/%Y)</strong> %k:%M:%S" ) %>
       </p>
       <p class='link'>
-        <%= link_to "Add a Location", new_collection_path %>
-        <%if current_user.collections.length > 0 %>
-        <%= link_to "| Add New Clothing", new_item_path %>
+        <%= link_to new_collection_path do%><span class="glyphicon glyphicon-plus"></span>
+       Add a Location <% end %>
+        <%if current_user.collections.length > 0 %> | 
+        <%= link_to new_item_path do%><span class="glyphicon glyphicon-plus"></span> 
+       Add New Clothing <% end %>
         <% end %>
       </p>
     </div>
