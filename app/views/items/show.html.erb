@@ -12,6 +12,13 @@
           <h1>
             <%= @item.color%>
             <%= @item.clothing_type%>
+            <div class="pull-right">
+              <% if @item.favorite == true%>
+                <span class="glyphicon glyphicon-hand-right"></span>
+                <span class="glyphicon glyphicon-star"></span>
+              <%else%>
+              <% end %>
+            </div>
           </h1>
           <p>
             <%= link_to edit_item_path(@item) do%>
