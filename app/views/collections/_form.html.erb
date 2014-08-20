@@ -7,7 +7,10 @@
           <%= f.label :location %>
           <%= f.text_field :location, class: "form-control" %>
         </div>
-          <%=link_to "Cancel", collections_path%>
+          <%=link_to collections_path do%>
+          <span class="glyphicon glyphicon-remove"></span>
+           Cancel
+           <% end %>
         <div class="form-group pull-right">
           <%= f.submit class: "btn btn-success", placeholder: "Create Location"%>
         </div>
