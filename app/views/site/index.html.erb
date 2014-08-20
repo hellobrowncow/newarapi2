@@ -106,10 +106,28 @@
                 <% if current_user %>
                  <div class="col-md-4 overlay current_user-root">
                    <ul>
-                    <li><p><%=link_to "My Profile", user_path(current_user)%> </p></li>
-                    <li><p><%= link_to "Add a Location", new_collection_path %> </p></li>
+                    <li><p>
+                        <%= link_to user_path(current_user) do%>
+                            <span class="glyphicon glyphicon-hand-right"></span>
+                            My Profile 
+                            <span class="glyphicon glyphicon-home"></span>
+                        <% end %>
+                    </p></li>
+                    <li><p>
+                        <%= link_to new_collection_path do%>
+                            <span class="glyphicon glyphicon-hand-right"></span>
+                            Add a Location 
+                            <span class="glyphicon glyphicon-globe"></span>
+                        <% end %>
+                    </p></li>
                     <%if current_user.collections.length > 0 %>
-                    <li><%= link_to "Add New Clothing", new_item_path %></li>
+                    <li><p>
+                        <%= link_to new_item_path do%>
+                            <span class="glyphicon glyphicon-hand-right"></span>
+                            Add New Clothing 
+                            <span class="glyphicon glyphicon-cloud-upload"></span>
+                        <% end %>
+                    </p></li>
                    </ul>
                 </div>
                     <% end %>  
