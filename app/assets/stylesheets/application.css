@@ -19,6 +19,9 @@
   overflow-y: ;
 } 
 
+#favorite-toggle {
+  font-size: large;
+}
 .checkbox label {
   color: hsla(208, 100%, 90%, 1);
 }
@@ -30,7 +33,7 @@
 
 .checkbox input[type=checkbox] {
   font-size: 100%;
-  position: relative;
+  /*position: relative;*/
 }
 
 .newuser-note {

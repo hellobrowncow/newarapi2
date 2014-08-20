@@ -4,8 +4,13 @@
         <div class="form-group">
           <div class="checkbox pull-right">
             <label for="item_favorite">
-              <%= f.check_box :favorite %>Favorite <span class="glyphicon glyphicon-thumbs-up"></span>
+              <%= f.check_box :favorite %> <span class="js-toggle">Favorite</span>
             </label>
+            <% if @item.favorite == true%>
+              <span class="glyphicon glyphicon-star"></span>
+            <%else%>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
@@ -47,3 +52,23 @@
             </div>
           </fieldset>
           <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    if (document.getElementById('item_favorite').checked === false) {
+      var toggle = true;
+    } else {
+      var toggle = false;
+    }
+
+      $('.js-toggle').on('click', function(){
+        if(toggle === false) {
+          $(this).html('Favorite <span class="glyphicon glyphicon-remove-circle" id="favorite-toggle"></span> ');
+          toggle = true;
+        } else {
+          $(this).html('Favorite <span class="glyphicon glyphicon-ok-circle" id="favorite-toggle" ></span> ');
+          toggle = false;
+        }
+      });
+  });
+</script>
