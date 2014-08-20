@@ -24,13 +24,15 @@
             <% end %> 
           </p>
           <div>
-            <h2 class="tag-header">Tags</h2>
-            <div class="tags-box">
-              <%for tag in @item.tags do %>
-              <div class="tag">
-                <%=tag.name%>
-              </div>
-              <% end -%>          
+            <hr>
+            <h2 class="tag-header"> Tags <span class="glyphicon glyphicon-tags"></span> </h2>
+            <div class="tags-box col-md-6">
+              <%for tag in @item.tags do %> 
+                <div class="tag">
+                  <span class="glyphicon glyphicon-tag"></span>
+                  <%=tag.name%> 
+                </div>
+              <% end %>          
             </div>
           </div>       
         </div>

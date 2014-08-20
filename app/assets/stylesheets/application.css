@@ -97,13 +97,15 @@ font-style: italic;
 
 .tag-header {
   font-size: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .tags-box {
  background-color: hsla(0,0%,0%,0.3);
  color: white;
  font-size: 90%;
+ border-radius: 20px;
+ text-align: center;
  padding: 10px; 
 }
 
