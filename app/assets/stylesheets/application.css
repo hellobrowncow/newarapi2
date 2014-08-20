@@ -9,7 +9,6 @@
 
  body {
   height: 100%;
-/*  background:url("../images/orange-wallpaper-fruits.jpg");*/
   background:url("../images/closet-a.jpg");
   background-repeat:no-repeat;
   background-attachment:fixed;
@@ -19,9 +18,14 @@
   overflow-y: ;
 } 
 
+.glyphicon  {
+/*  font-size: medium;*/
+}
+
 #favorite-toggle {
   font-size: large;
 }
+
 .checkbox label {
   color: hsla(208, 100%, 90%, 1);
 }
